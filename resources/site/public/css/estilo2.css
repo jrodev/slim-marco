@@ -1,0 +1,49 @@
+
+#o_horizontal_separator {
+    color: #7c7bad;
+    font-weight: bold;
+}
+
+#row {
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+#oe_inline {
+    width: auto!important;
+}
+#panel-primary > 
+
+#panel-heading {
+    color: #ffffff;
+    background-color: #7c7bad;
+    border-color: #7c7bad;
+
+}
+
+#panel-body {
+    padding: 15px;
+}
+
+
+#o_form_view, 
+#o_form_field_boolean {
+    margin: 0 5px 0 0;
+}
+
+#o_form_view, 
+#o_form_invisible, 
+#o_form_view, 
+#o_form_field_empty {
+    display: none!important;
+}
+
+#o_form_view, 
+#o_form_input_dropdown {
+    -ms-flex: 1 0 auto;
+    -moz-flex: 1 0 auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    position: relative;
+}

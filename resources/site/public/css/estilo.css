@@ -1,0 +1,96 @@
+/* CSS Document */
+
+body {
+margin:0px; font-family:Arial, Helvetica, sans-serif;  
+background:#FFFFFF;
+background-position: center,center 10%;
+background-repeat: repeat-y, repeat-x ;
+}
+
+
+#header {
+	width:750px;
+	margin-left:275px;
+	height: 100px;}
+
+#principal {
+	width:1024px;
+	height: 100%;
+	background:#fff;
+	margin:0 auto;
+	z-index:2;}
+	
+	#contenido {
+	width: 984px;
+	padding: 20px;
+	height: 100%;
+	background: #fff;
+	margin: 0 auto;
+	z-index: 2;
+	font-size: 12px;
+	font-style: normal;
+	text-align: left;
+}
+	
+#footer {
+	width:1004px;
+	padding:10px;
+	height: 350px;
+	color:#FFFFFF;
+	font-size:11px;
+	background: #2f3cbb}
+	
+#columna_footer {
+	width:220px;
+	height: 210px;
+	color:#FFFFFF;
+	font-size:10px;
+	float:left;
+	text-align:left;
+	margin:5px;
+	margin-bottom:10px;
+	padding:10px;}
+
+#banner_footer {
+	width:1004px;
+	height: 100px;
+	color:#FFFFFF;
+	font-size:10px;
+	float:left;
+	text-align:left;
+	margin-right:10px;
+	margin-bottom:10px;
+	background: #fff}
+	
+#banner_footer img {
+	margin-left:10px;
+	height:43px;
+	padding-top:10px;
+	margin-top:20px
+	}
+	
+#columna_footer ul {
+	line-height:15px;
+
+	}
+#columna_footer li {
+	margin-bottom:12px;
+		margin-left:-20px;
+
+	}
+
+#columna_footer h1 {
+	margin-bottom:12px;
+	}
+	
+#columna_footer	a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+	
+	
+
+

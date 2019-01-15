@@ -1,0 +1,12 @@
+{
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "scripts":{
+        "pre-install-cmd": [
+            "ls",
+            "pwd",
+            "composer install -d=application"
+        ]
+    }
+}
