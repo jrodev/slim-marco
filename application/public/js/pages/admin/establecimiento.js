@@ -1,20 +1,14 @@
 $(document).ready(function() {
 
     //$('[data-toggle="tooltip"]').tooltip();
-
     var $tblAddItem = $(".tbl-add-item")
-        //, $addNew = $(".add-new")
-        //, $tblEspec = $(".tbl-especialidad")
-        //, $curentRows = $tblEspec.find('tbody tr').not('.d-none')
-        // Row Template
-        //, $rowTpl = $("table tbody tr:first-child")
-
+        // funcionalidad para para los selects de cada row (nuevo o existe)
         , fncSelect = function () {
             console.log(this);
             var thisText = $.trim($(this).find(':selected').text());
             $(this).parent().find('span').html(thisText);
         }
-
+        // funcionalidad para para los inputs de cada row (nuevo o existe)
         , fncInput = function() {
             var thisVal = $.trim($(this).val());
             console.log(thisVal);
@@ -31,12 +25,11 @@ $(document).ready(function() {
             , $rowTpl = $table.find("tbody tr:first-child") // Row Template
         ;
 
-        // Eventos para los Rows existentes
+        // Eventos para los elementos (inputs, selects) dentro de cada Row ya
+        // existente, de data que ya existe en la bd (menos el template)
         $curentRows.each(function (i, tr) {
-            // Elements events
             $(tr).find('select').on("change", fncSelect);
             $(tr).find('input,textarea').on("keyup change click", fncInput);
-            // Eventos de add y edit
             // $(tr).find(".add, .edit").toggle();
         });
 
@@ -47,20 +40,18 @@ $(document).ready(function() {
         // Eventos de add y edit
         $rowTpl.find(".add-row, .edit-row").toggle();
 
-        // Append table with add row form on add new button click
+        // Evento para el boton nuevo Item row
         $addNew.on('click', function () {
             $(this).prop("disabled", true);
             var $newRow = $rowTpl.clone(true);
             $table.append($newRow.removeClass('d-none'));
             //$newRow.find('[data-toggle="tooltip"]').tooltip();
         });
-
     });
-
     // tooltip event
     //$rowTpl.find('[data-toggle="tooltip"]').tooltip();
 
-    // Add row on add button click
+    // evento para el boton Add-row de cada nuevo o existen item.
     $(document).on("click", "a.add-row", function () {
         //var empty = false;
         var $thisRow   = $(this).parents('tr:eq(0)')
@@ -71,15 +62,13 @@ $(document).ready(function() {
 
         $allInps.each(function (i, ele) {
             var $ele = $(ele)
-                ,val = $.trim($(ele).val())
-                //, isLast = ($allInps.length-1 == i)
+                ,val = $.trim($(ele).val()) //, isLast = ($allInps.length-1 == i)
             ;
             if (isValid && val=='') {
                 $ele.focus();
                 isValid = false;
             }
-            if (!val) { $ele.addClass("error"); }
-            //if(isLast && isValid){ }
+            if (!val) { $ele.addClass("error"); } //if(isLast && isValid){ }
         });
 
         if (isValid) {
@@ -112,27 +101,7 @@ $(document).ready(function() {
         $addRow.removeAttr("disabled");
     });
 
-    /******/
-    var formToJson = function ($form) {
-        if(!$form.is('form')) { return ; }
-        var o = {};
-        var a = $form.serializeArray();
-        $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-
-    /*
-    Validation
-    */
+    /* Validation */
     window.$validator = $("form").validate({
         //debug: true,
         tooltip_options: {
@@ -145,33 +114,32 @@ $(document).ready(function() {
 			$( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
 		},
         submitHandler: function (form) {
-            //var data = $(form).serialize();
-            //console.log(data);
-            //var oForm = formToJson($(form));
-            var oForm = formToJSON($(form, ".establecimiento").find(':input'));
+
+            var $tblEsp = $('[table-name="especialidad"]')
+                , $rows = $tblEsp.find('tbody tr:not(.d-none)')
+            ;
+
+            // formToJSON -> js/libs/my/serialize.js
+            var oForm = formToJSON( $(form, ".establecimiento").find(':input') );
+            var oEsp = formToJSON( $rows.find(':input') );
             console.log(oForm);
+            console.log(oEsp);
+
+            return ;
 
             $.ajax({
-                url : App.baseUrl+'establecimientos', // la URL para la petición
+                url : App.baseUrl + 'establecimientos', // la URL para la petición
                 data : oForm, // la información a enviar // (también es posible utilizar una cadena de datos)
                 type : 'POST',// especifica si será una petición POST o GET
                 dataType : 'json', // el tipo de información que se espera de respuesta
-
-                // código a ejecutar si la petición es satisfactoria;
-                // la respuesta es pasada como argumento a la función
-                success : function(json) {
+                success : function (json) {
                     //$('<h1/>').text(json.title).appendTo('body');
                     console.log("resp:",json);
-                    $('<pre class="content"/>').html(JSON.stringify(json)).appendTo('body');
+                    $('<pre class="content" />').html(JSON.stringify(json)).appendTo('body');
                 },
-
-                // código a ejecutar si la petición falla;
-                // son pasados como argumentos a la función
-                // el objeto de la petición en crudo y código de estatus de la petición
                 error : function(xhr, status) {
-                    console.log("error:",arguments);
+                    console.log("error:", arguments);
                 },
-
                 // código a ejecutar sin importar si la petición falló o no
                 complete : function(xhr, status) {
                     console.log("complete!");

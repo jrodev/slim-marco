@@ -265,7 +265,7 @@
                                     <tbody>
                                         <tr class="d-none">
                                             <td>
-                                                <select class="form-control espec-nom">
+                                                <select id="especialidad_id" name="especialidad_id" class="form-control espec-nom">
                                                     <option value="">Elegir Especialidad</option>
                                                     {% for key,esp in esps %}
                                                         <option value="{{esp.id}}">{{esp.nombre}}</option>
@@ -274,7 +274,7 @@
                                                 <span style="display:none"></span>
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control espec-cant" />
+                                                <input type="number" id="personal_cant" name="personal_cant" class="form-control espec-cant" />
                                                 <span style="display:none"></span>
                                             </td>
                                             <td>
