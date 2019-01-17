@@ -117,6 +117,11 @@ $(document).ready(function() {
 
             var $tblEsp = $('[table-name="especialidad"]')
                 , $rows = $tblEsp.find('tbody tr:not(.d-none)')
+
+                //array de inputs, nombre y valor
+                , aInps = $rows.map(function () {
+                    return formToJSON( $(this).find(':input') )
+                })
             ;
 
             // formToJSON -> js/libs/my/serialize.js
