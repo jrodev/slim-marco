@@ -16,6 +16,7 @@ $(document).ready(function() {
         }
     ;
 
+    // Tablas con funcionalidad de agregar o quitar items
     $tblAddItem.each(function (i, table) {
 
         var $table = $(table)
@@ -82,9 +83,10 @@ $(document).ready(function() {
     });
 
     // Edit row on edit button click
-    $(document).on("click", ".edit-row", function() {
-        var $thisRow = $(this).parents('tr:eq(0)')
-            ,$allInps = $thisRow.find(':input')
+    $(document).on("click", ".edit-row", function () {
+        var $thisRow   = $(this).parents('tr:eq(0)')
+            , $allInps = $thisRow.find(':input')
+            , $addNew  = $thisRow.parent('.container-add-item').find(".tbl-add-row")
         ;
         $allInps.show();
         $thisRow.find('span').hide();
@@ -114,27 +116,50 @@ $(document).ready(function() {
 			$( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
 		},
         submitHandler: function (form) {
+            // formToJSON -> js/libs/my/serialize.js
+            var $tblEstab       = $(form).find('[table-name="establecimiento"]')
+                , $tblEsp       = $(form).find('[table-name="personal_especialidad"]')
+                , $tblUpssUps   = $(form).find('[table-name="ambiente_upssups"]') // ambiente_upssups
+                , $tblAttrEstab = $(form).find('[table-name="atributo_establecimiento"]') // ambiente_upssups
+                , $rowNewAttr   = $(form).find('[table-name="atributo"]') // Rows con datos para un atributo nuevo
 
-            var $tblEsp = $('[table-name="especialidad"]')
-                , $rows = $tblEsp.find('tbody tr:not(.d-none)')
+                , $inpEstab      = $tblEstab.find(':input')
+                , $rowsEsp       = $tblEsp.find('tbody tr:not(.d-none)')
+                , $rowsUpssUps   = $tblUpssUps.find('tbody tr:not(.d-none)')
+                , $rowsAttrEstab = $tblAttrEstab.find('select option[value=""]')
+                                                .not(':selected').parents('tr')
 
-                //array de inputs, nombre y valor
-                , aInps = $rows.map(function () {
-                    return formToJSON( $(this).find(':input') )
-                })
+                // Convierte un row de tabla con inputs, a un objeto de inputs y value
+                , fncRowToJson = function () { return formToJSON( $(this).find(':input') ) }
+
+                // Inputs a enviar por Post
+                , oInpEstab     = formToJSON( $inpEstab )
+                , aInpEsp       = $rowsEsp.map(fncRowToJson).get()
+                , aInpUpssUps   = $rowsUpssUps.map(fncRowToJson).get()
+                , aInpAttrEstab = $rowsAttrEstab.map(fncRowToJson).get()
+                , aInpAttr      = []
+                , oAllRowsPost  = {
+                    "establecimiento":oInpEstab,
+                    "personal_especialidad":aInpEsp,
+                    "ambiente_upssups":aInpUpssUps,
+                    "atributo_establecimiento":aInpAttrEstab
+                }
             ;
 
-            // formToJSON -> js/libs/my/serialize.js
-            var oForm = formToJSON( $(form, ".establecimiento").find(':input') );
-            var oEsp = formToJSON( $rows.find(':input') );
-            console.log(oForm);
-            console.log(oEsp);
+            // Buscando todos los Rows de nuevo atributo, cuyo input de ingreo es visible
+            $rowNewAttr.find('input:visible').each(function (i, inp) {
+                var $tr = $(inp).parents('tr')
+                    thisVal = $.trim($(inp).val())
+                ;
+                if (thisVal) { aInpAttr.push( formToJSON( $tr.find(':input') ) ); }
+            });
+            oAllRowsPost["atributo"] = aInpAttr;
 
-            return ;
-
+            console.log("oAllRowsPost->",oAllRowsPost);
+            //return ;
             $.ajax({
                 url : App.baseUrl + 'establecimientos', // la URL para la petición
-                data : oForm, // la información a enviar // (también es posible utilizar una cadena de datos)
+                data : oAllRowsPost, // la información a enviar // (también es posible utilizar una cadena de datos)
                 type : 'POST',// especifica si será una petición POST o GET
                 dataType : 'json', // el tipo de información que se espera de respuesta
                 success : function (json) {
@@ -202,7 +227,7 @@ $(document).ready(function() {
     $(".upssups-cat").on('change', function () {
 
         var thisVal = $(this).val();
-        var $addItem = $(this).parents('.container-add-item');
+        var $rowItem = $(this).parents('tr');
 
         if (thisVal) {
             var apiUrl = App.baseUrl + 'upssups/cat/' + thisVal + '?format=json';
@@ -217,7 +242,7 @@ $(document).ready(function() {
                     for (var i in aJson) {
                         opts += "<option value='"+aJson[i].id+"'>" + aJson[i].nombre + "</option>\n";
                     }
-                    $addItem.find('.upssups-nom').html(opts);
+                    $rowItem.find('.upssups-nom').html(opts);
                 },
                 error : function(xhr, status) {
                     console.log("error:",arguments);

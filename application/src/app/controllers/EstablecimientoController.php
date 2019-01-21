@@ -8,6 +8,9 @@ use Interop\Container\ContainerInterface;
 use App\Controller;
 
 use App\Models\Establecimiento;
+use App\Models\PersonalEspecialidad;
+use App\Models\AmbienteUpssups;
+use App\Models\AtributoEstablecimiento;
 /**
  * Acciones para el Controlador Home
  */
@@ -35,7 +38,8 @@ class EstablecimientoController extends Controller
                     ->join($ta, "$ta.id", '=', "$a.tipo_atributo_id")
                     ->select(
                         $db->raw("$ta.id idTipo"), $db->raw("$ta.nombre nomTipo"),
-                        "$a.nombre", $db->raw("concat($ta.abrev,'_',$a.abrev) as inp_name")
+                        $db->raw("$a.nombre_atrib nombre"), $db->raw("concat($ta.abrev,'_',$a.abrev) as idVal"),
+                        $db->raw("$a.id idAttr")
                     )//->toSql()
         ;
         // Agrupando para adecuadamente para usar en el foreach de la plantilla
@@ -96,26 +100,87 @@ class EstablecimientoController extends Controller
 
     public function guardar ($req, $resp, $args) {
         try {
-            \App\Model::beginTransaction();
-            $establecimiento = new Establecimiento;
-            $postData = $req->getParsedBody();
-            $fieldsExclude = array('region_id', 'departamento_id', 'provincia_id');
+            // Modelos Involucrados en esta transaccion
+            $establecimiento         = new Establecimiento;
+            $personalEspecialidad    = new PersonalEspecialidad;
+            $ambienteUpssups         = new AmbienteUpssups;
+            $atributoEstablecimiento = new AtributoEstablecimiento;
 
-            foreach ($postData as $col=>$val) {
-                if(in_array($col,$fieldsExclude)) continue;
-                if (trim($val)) { $establecimiento[$col] = $val; }
+            // Datos enviados por POST
+            $postData = $req->getParsedBody();
+            //var_dump($postData); exit;
+            //return $resp->withJson($postData);
+            // Armando Datos para guardar en tabla Establecimiento
+            $fieldsExclude = array('region_id', 'departamento_id', 'provincia_id');
+            if (key_exists("establecimiento", $postData))
+                foreach ($postData["establecimiento"] as $col=>$val) {
+                    if(in_array($col,$fieldsExclude)) continue;
+                    if (trim($val)) { $establecimiento[$col] = $val; }
+                }
+
+            // iniciando Transaccion
+            \App\Model::beginTransaction();
+            $establecimiento->save();
+
+            // Armando Datos para guardar en tabla personal_especialidad
+            if (key_exists("personal_especialidad", $postData)) {
+                $arrPersEspc = $this->getRowsForInserted(
+                    $postData["personal_especialidad"], array("establecimiento_id"=>$establecimiento->id)
+                );
+                $personalEspecialidad->insert($arrPersEspc);
             }
 
-            $establecimiento->save();
+            // Armando Datos para guardar en tabla ambiente_upssups
+            if (key_exists("ambiente_upssups", $postData)) {
+                $arrAmbUpssUps = $this->getRowsForInserted(
+                    $postData["ambiente_upssups"], array("establecimiento_id"=>$establecimiento->id)
+                );
+                $ambienteUpssups->insert($arrAmbUpssUps);
+            }
+            // Armando Datos para guardar en tabla atributo_establecimiento
+            if (key_exists("atributo_establecimiento", $postData)) {
+                $arrAtribEstab = $this->getRowsForInserted(
+                    $postData["atributo_establecimiento"], array("establecimiento_id"=>$establecimiento->id)
+                );
+                $atributoEstablecimiento->insert($arrAtribEstab);
+            }
+
             //$establecimiento = Establecimiento::create();   //!d($user->id,$user);
+            //Terminando Transaccion
             \App\Model::commit();
-            $data = array("status"=>1, "post"=>$establecimiento, "args"=>$args, "msg"=>"Se guardo Establecimiento!");
+
+            // Respuesta OK 200
+            $data = array("status"=>1, "post"=>$postData, "args"=>$args, "msg"=>"Se guardo Establecimiento!");
+
         } catch (Exception $ex) {
             \App\Model::rollBack();
-            return $resp->withJson(array("status"=>1, "msg"=>$ex->getMessage()));
+            return $resp->withJson(array( "status"=>1, "msg"=>$ex->getMessage(), "post"=>$postData ));
         }
 
         return $resp->withJson($data);
+    }
+
+    /**
+     * Construyendo Array de registros para insertar en tabla, asociadas con $fkId
+     * @param array $arrRows Array de nuevos registros para una tabla especifica.
+     * @param array $fkId ['fk_id'=>VAL] nombre de columna y valor del PkId la tabla principal ya insertada.
+     * @param array $fieldsExclude columnas de cada row que no deberian insertarse
+     * @return array Array listo para ser insertado con Model::insert(array()).
+     */
+    private function getRowsForInserted ($arrRows, $fkId=FALSE, $fieldsExclude=FALSE) {
+        $arrPersEspc = array();
+        foreach ($arrRows as $i => $row) {
+            $newRow = array();
+            if ($fkId) { $newRow[key($fkId)] = current($fkId); }
+            foreach ($row as $col=>$val) {
+                if ($fieldsExclude && in_array($col,$fieldsExclude)) continue;
+                //if (trim($val)!=="") {
+                    $newRow[$col] = $val;
+                //}
+            }
+            $arrPersEspc[] = $newRow;
+        }
+        return $arrPersEspc;
     }
 
 }

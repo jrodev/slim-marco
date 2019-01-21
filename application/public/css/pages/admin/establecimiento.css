@@ -148,3 +148,7 @@ Extra large devices (large desktops, 75em and up (1200px))
 
 /*--------------*/
 .th-actions { padding: auto 0 !important; }
+
+/*Fix - Style .form-control.is-valid */
+/*Para que el estilo no tape el contenido de los select's*/
+.form-control.is-valid{padding-right: 20px !important;}

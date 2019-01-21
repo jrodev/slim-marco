@@ -17,7 +17,7 @@
 
 {% block content %}
 
-    <form method="post" enctype="multipart/form-data">
+    <form id="frmSaveEstab" method="post" enctype="multipart/form-data">
         <div id="thisContainer" class="container">
             <div class="row">
                 <div class="col-xl-3 col-md-6">
@@ -248,7 +248,7 @@
 
             <div class="row">
                 <div class="col-md">
-                    <div class="card container-add-item" table-name="especialidad">
+                    <div class="card container-add-item" table-name="personal_especialidad">
                         <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
                         <div class="card-body">
                             <h6 class="card-title">INGRESO DE ESPECIALIDADES</h6>
@@ -344,7 +344,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md">
                     <ul class="nav nav-tabs" id="tabsUpssUps" role="tablist">
@@ -358,7 +357,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane container-add-item fade show active" id="contentUpss" role="tabpanel" aria-labelledby="tabUpss">
                             <button type="button" class="btn btn-info btn-sm tbl-add-row"><i class="fa fa-plus"></i>Nuevo...</button>
-                            <table class="table table-bordered tbl-add-item mb-0" table-name="upss_ups">
+                            <table class="table table-bordered tbl-add-item mb-0" table-name="ambiente_upssups">
                                 <thead>
                                     <tr>
                                         <th class="w-50">Categoria</th>
@@ -382,11 +381,11 @@
                                             <span style="display:none"></span>
                                         </td>
                                         <td>
-                                            <select class="form-control upssups-nom"><option></option></select>
+                                            <select name="upssups_id" class="form-control upssups-nom"></select>
                                             <span style="display:none"></span>
                                         </td>
                                         <td>
-                                            <input type="number" class="form-control upssups-cant" />
+                                            <input type="number" name="ambiente_total" class="form-control upssups-cant" />
                                             <span style="display:none"></span>
                                         </td>
                                         <td>
@@ -456,7 +455,7 @@
                         </div>
                         <div class="tab-pane container-add-item fade" id="contentUps" role="tabpanel" aria-labelledby="tabUps">
                             <button type="button" class="btn btn-info btn-sm tbl-add-row"><i class="fa fa-plus"></i>Nuevo...</button>
-                            <table class="table table-bordered tbl-add-item mb-0" table-name="upss_ups">
+                            <table class="table table-bordered tbl-add-item mb-0" table-name="ambiente_upssups">
                                 <thead>
                                     <tr>
                                         <th class="w-50">Categoria</th>
@@ -468,7 +467,7 @@
                                 <tbody>
                                     <tr class="d-none">
                                         <td>
-                                            <select class="form-control upssups-cat">
+                                            <select class="form-control upssups-cat not-inp">
                                                 <option value="">-Categoria-</option>
                                                 {% for key,cat in catUppsUps %}
                                                     {% if cat.ambiente == 2 %}
@@ -479,7 +478,7 @@
                                             <span style="display:none"></span>
                                         </td>
                                         <td>
-                                            <select name="establecimiento_id" class="form-control upssups-nom"></select>
+                                            <select name="upssups_id" class="form-control upssups-nom"></select>
                                             <span style="display:none"></span>
                                         </td>
                                         <td>
@@ -557,7 +556,7 @@
 
             <div class="row">
                 <div class="col-xl-3 col-md-6">
-                    <div class="card tbl-establecimiento">
+                    <div class="card" table-name="establecimiento">
                         <div class="card-body">
                             <h6 class="card-title">CARAC. TÉC. ELÉCTRICAS</h6>
                             <div class="form-row">
@@ -597,7 +596,7 @@
                 </div>
 
                 <div class="col-xl-3 col-md-6">
-                    <div class="card tbl-establecimiento">
+                    <div class="card" table-name="establecimiento">
                         <div class="card-body">
                             <h6 class="card-title">RESIDUOS SOLIDOS</h6>
                             <div class="form-row">
@@ -641,7 +640,7 @@
                 </div>
 
                 <div class="col-xl-3 col-md-6">
-                    <div class="card tbl-establecimiento">
+                    <div class="card" table-name="establecimiento">
                         <div class="card-body">
                             <h6 class="card-title">REDES DE COMUNICACIÓN</h6>
                             <div class="form-row">
@@ -667,7 +666,7 @@
                 </div>
 
                 <div class="col-xl-3 col-md-6">
-                    <div class="card tbl-establecimiento">
+                    <div class="card" table-name="establecimiento">
                         <div class="card-body">
                             <h6 class="card-title">ESTADO DE CONSERVACIÓN</h6>
                             <div class="form-row">
@@ -697,7 +696,7 @@
                 <div class="card-columns">
 
                     {% for idtipoattr,tipoAttrObj in attrs %}
-                    <div class="card atributo" data-idtipoattr="{{idtipoattr}}">
+                    <div class="card atributo" data-idtipoattr="{{idtipoattr}}" table-name="atributo_establecimiento">
                         <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
                         <div class="card-body">
                             {% set tipoAttrArr = tipoAttrObj.all() %}
@@ -716,9 +715,12 @@
                                 <table class="table table-sm table-borderless mb-0">
                                     {% for attr in allAttrs %}
                                     <tr>
-                                        <td><label for="{{attr.inp_name}}">{{attr.nombre}}</label></td>
+                                        <td>
+                                            <label for="{{attr.idVal}}">{{attr.nombre}}</label>
+                                            <input type="hidden" name="atributo_id" value="{{attr.idAttr}}" />
+                                        </td>
                                         <td class="w-25">
-                                            <select id="{{attr.inp_name}}" name="{{attr.inp_name}}" class="form-control sel-attr">
+                                            <select id="{{attr.idVal}}" name="seleccionado" class="form-control sel-attr">
                                                 <option value="">----</option>
                                                 <option value="0">Si</option>
                                                 <option value="1">No</option>
@@ -726,10 +728,11 @@
                                         </td>
                                     </tr>
                                     {% endfor %}
-                                    <tr>
+                                    <tr table-name="atributo">
                                         <td>
                                             <!--label for="{{attr.inp_name}}">Otro</label-->
-                                            <input type="text" class="form-control inp-other-attr d-none" placeholder="Otro?" disabled />
+                                            <input type="hidden" name="tipo_atributo_id" value="{{idtipoattr}}" />
+                                            <input type="text" name="nombre_atrib" class="form-control inp-other-attr d-none" placeholder="Otro?" disabled />
                                         </td>
                                         <td class="w-25">
                                             <button type="button" class="form-control btn btn-info btn-sm btn-other-attr">Otro?</button>
