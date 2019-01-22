@@ -22,7 +22,19 @@ class EstablecimientoController extends Controller
        $this->ci = $ci;
     }
     */
+
     public function index ($req, $resp, $args)
+    {
+
+
+        return $this->render(
+            $resp,
+            'establecimiento/index.twig'//,
+            //['attrs'=>$attrs, 'esps'=>$esps, 'catUppsUps'=>$catUppsUps]
+        );
+    }
+
+    public function nuevo ($req, $resp, $args)
     {
         var_dump($args);
         $db = $this->db;
@@ -62,7 +74,7 @@ class EstablecimientoController extends Controller
         //$catUpss = $query->where('ambiente','=','1')->get()->all();
         //$catUps  = $query->where('ambiente','=','2')->get()->all();
 
-        !d($query->toSql(),$catUppsUps);
+        //!d($query->toSql(),$catUppsUps);
 
         //var_dump($attrs);
         //!d($query->toSql(), $attrs); exit;
@@ -93,7 +105,7 @@ class EstablecimientoController extends Controller
 
         return $this->render(
             $resp,
-            'establecimiento/index.twig',
+            'establecimiento/nuevo.twig',
             ['attrs'=>$attrs, 'esps'=>$esps, 'catUppsUps'=>$catUppsUps]
         );
     }

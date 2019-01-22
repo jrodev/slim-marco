@@ -157,6 +157,7 @@ $(document).ready(function() {
 
             console.log("oAllRowsPost->",oAllRowsPost);
             //return ;
+            $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'});
             $.ajax({
                 url : App.baseUrl + 'establecimientos', // la URL para la petición
                 data : oAllRowsPost, // la información a enviar // (también es posible utilizar una cadena de datos)
@@ -164,14 +165,18 @@ $(document).ready(function() {
                 dataType : 'json', // el tipo de información que se espera de respuesta
                 success : function (json) {
                     //$('<h1/>').text(json.title).appendTo('body');
+                    $("#myModalSuccess").modal('show');
                     console.log("resp:",json);
                     $('<pre class="content" />').html(JSON.stringify(json)).appendTo('body');
                 },
-                error : function(xhr, status) {
+                error : function (xhr, status) {
+                    $("#myModalError").modal('show');
+                    //showModal("Se guardo correctamente!");
                     console.log("error:", arguments);
                 },
                 // código a ejecutar sin importar si la petición falló o no
-                complete : function(xhr, status) {
+                complete : function (xhr, status) {
+                    $('body').loadingModal('hide');
                     console.log("complete!");
                 }
             });
@@ -215,13 +220,6 @@ $(document).ready(function() {
             $input.prop('disabled', !isDisab);
         });
     })();
-
-    /* DataTables Plugin*/
-    $('#tblEstablecimiento').DataTable({
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        }
-    });
 
     // Listado de UPSS o UPS
     $(".upssups-cat").on('change', function () {

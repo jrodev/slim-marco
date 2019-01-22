@@ -1,0 +1,780 @@
+{% extends 'layout/admin.twig' %}
+
+{% block title %}
+    Mantenimiento de Establecimiento
+{% endblock %}
+
+{% block style %}
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" rel="stylesheet" />
+    <!--
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css" type="text/css" rel="stylesheet" />
+    -->
+
+    <link href="{{ baseUrl() }}css/libs/jquery.loadingModal.css" type="text/css" rel="stylesheet" />
+    <link href="{{ baseUrl() }}css/pages/admin/establecimiento-nuevo.css" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+    <h4 class="text-center">FICHA TÉCNICA DEL ESTABLECIMIENTO DE SALUD</h4>
+    <form id="frmSaveEstab" method="post" enctype="multipart/form-data">
+        <div id="thisContainer" class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <div class="card-body">
+                            <h6 class="card-title">DATOS GENERALES</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Codigo</label>
+                                    <input type="text" class="form-control required" id="codigo" name="codigo" placeholder="Ingrese codigo"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="inputPassword4">Nombre Establecimiento</label>
+                                    <input type="text" class="form-control required" id="nombre" name="nombre" placeholder="Nombre Establecimiento"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Direccion</label>
+                                    <input type="text" class="form-control required" id="direccion" name="direccion" placeholder="Direccion"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Periodo</label>
+                                    <input type="text" class="form-control" id="periodo" name="periodo" placeholder="Periodo"/>
+                                </div>
+                                <div class="form-group col-md-12 mb-0">
+                                    <label class="d-none" for="periodo">Categoria</label>
+                                    <select class="form-control required" id="categoria_id" name="categoria_id" placeholder="Periodo">
+                                        <option value="">Categoria ...</option>
+                                        <option value="1">Categoria 1</option>
+                                        <option value="2">Categoria 2</option>
+                                        <option value="3">Categoria 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            <h6 class="card-title">UBICACIÓN</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="region_id">Region</label>
+                                    <select class="form-control required" id="region_id" name="region_id" placeholder="Region">
+                                        <option value="">Region ...</option>
+                                        <option value="1">Costa</option>
+                                        <option value="2">Sierra</option>
+                                        <option value="3">Selva</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Departamento</label>
+                                    <select class="form-control required" id="departamento_id" name="departamento_id" placeholder="Departamento">
+                                        <option value="">Departamento ...</option>
+                                        <option value="1">Lima</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Provincia</label>
+                                    <select class="form-control required" id="provincia_id" name="provincia_id" placeholder="Provincia">
+                                        <option value="">Provincia ...</option>
+                                        <option value="1">Lima</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12 mb-0">
+                                    <label class="d-none" for="periodo">Distrito</label>
+                                    <select class="form-control required" id="distrito_id" name="distrito_id" placeholder="Distrito">
+                                        <option value="">Distrito ...</option>
+                                        <option value="1">Lima - Metrop.</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            <h6 class="card-title">RED</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Diris / Diresa</label>
+                                    <input type="text" class="form-control" id="red_dirisdiresa" name="red_dirisdiresa" placeholder="Diris / Diresa"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="inputPassword4">Red</label>
+                                    <input type="text" class="form-control" id="red_red" name="red_red" placeholder="Nombre Establecimiento"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Microred</label>
+                                    <input type="text" class="form-control" id="red_microred" name="red_microred" placeholder="Direccion"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Institución</label>
+                                    <input type="text" class="form-control" id="red_institucion" name="red_institucion" placeholder="Periodo"/>
+                                </div>
+                                <div class="form-group col-md-12 mb-0">
+                                    <label class="d-none" for="periodo">Área Geográfica</label>
+                                    <select class="form-control" id="red_areageografica" name="red_areageografica" placeholder="Área Geográfica">
+                                        <option value="">Área Geográfica ...</option>
+                                        <option value="Rural">Rural</option>
+                                        <option value="Urbana">Urbana</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            <h6 class="card-title">INFORMACIÓN GENERAL DEL ESTABLECIMIENTO</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Año puesta en marcha</label>
+                                    <input type="text" class="form-control" id="gral_aniomarcha" name="gral_aniomarcha" placeholder="Año puesta en marcha"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="gral_nrocamas">N° de camas (Internamiento/Hospitalización)</label>
+                                    <input type="text" class="form-control" id="gral_nrocamas" name="gral_nrocamas" placeholder="N° de camas"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="gral_poblacbenefic">Población Beneficiaria</label>
+                                    <input type="text" class="form-control" id="gral_poblacbenefic" name="gral_poblacbenefic" placeholder="Población Beneficiaria"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="gral_inversionInfra">Inversión en Infraestructura</label>
+                                    <input type="text" class="form-control" id="gral_inversionInfra" name="gral_inversionInfra" placeholder="Inversión en Infraestructura"/>
+                                </div>
+                                <div class="form-group col-md-12 mb-0">
+                                    <label class="d-none" for="gral_inversionequip">Inversión en Equipamiento</label>
+                                    <input type="text" class="form-control" id="gral_inversionequip" name="gral_inversionequip" placeholder="Inversión en Equipamiento"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card" table-name="establecimiento">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            <h6 class="card-title">GEOLOCALIZACIÓN</h6>
+                            <div class="form-row">
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_terrenopropio">El terreno es propio</label>
+                                    <input title="" type="text" class="form-control" id="geo_terrenopropio" name="geo_terrenopropio" placeholder="Ingrese codigo"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_terrenosanea">El terreno cuenta con saneamiento físico legal</label>
+                                    <input type="text" class="form-control" id="geo_terrenosanea" name="geo_terrenosanea" placeholder="El terreno cuenta con saneamiento físico legal"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_areaterreno">Área del terreno (m2)</label>
+                                    <input type="text" class="form-control" id="geo_areaterreno" name="geo_areaterreno" placeholder="Área del terreno (m2)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_areaconstruida">Área construída (m2)</label>
+                                    <input type="text" class="form-control" id="geo_areaconstruida" name="geo_areaconstruida" placeholder="Área construída (m2)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_arealibre">Área libre (m2)</label>
+                                    <input type="text" class="form-control" id="geo_arealibre" name="geo_arealibre" placeholder="Área libre (m2)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_superfterreno">Superficie del terreno</label>
+                                    <select class="form-control" id="geo_superfterreno" name="geo_superfterreno" placeholder="Superficie del terreno" title="Superficie del terreno">
+                                        <option value="">Superficie del terreno ...</option>
+                                        <option value="Plana">Plana</option>
+                                        <option value="Inclinada">Inclinada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_nropisosestabl">Número de pisos del establecimiento</label>
+                                    <input type="text" class="form-control" id="geo_nropisosestabl" name="geo_nropisosestabl" placeholder="Número de pisos del establecimiento"/>
+                                </div>
+
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_latitud">Latitud (Grados Sexagesimales)</label>
+                                    <input type="text" class="form-control" id="geo_latitud" name="geo_latitud" placeholder="Latitud (Grados Sexagesimales)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_longitud">Longitud (Grados Sexagesimales)</label>
+                                    <input type="text" class="form-control" id="geo_longitud" name="geo_longitud" placeholder="Longitud (Grados Sexagesimales)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_altura">Altura (m.s.n.m.)</label>
+                                    <input type="text" class="form-control" id="geo_altura" name="geo_altura" placeholder="Altura (m.s.n.m.)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_poblacRegion">Población actual de la Región (en miles)</label>
+                                    <input type="text" class="form-control" id="geo_poblacRegion" name="geo_poblacRegion" placeholder="Población actual de la Región (en miles)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_poblacDistrito">Población actual del Distrito (en cientos)</label>
+                                    <input type="text" class="form-control" id="geo_poblacDistrito" name="geo_poblacDistrito" placeholder="Población actual del Distrito (en cientos)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_areadistrito">Área del Distrito (Km2)</label>
+                                    <input type="text" class="form-control" id="geo_areadistrito" name="geo_areadistrito" placeholder="Área del Distrito (Km2)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_poblacdensidad">Densidad poblacional (Hab/Km2)</label>
+                                    <input type="text" class="form-control" id="geo_poblacdensidad" name="geo_poblacdensidad" placeholder="Densidad poblacional (Hab/Km2)"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_accesibilidad">Accesibilidad</label>
+                                    <input type="text" class="form-control" id="geo_accesibilidad" name="geo_accesibilidad" placeholder="Accesibilidad"/>
+                                </div>
+                                <div class="form-group col-xl-3 col-md-6">
+                                    <label class="d-none" for="geo_tipocamino">Tipo de camino</label>
+                                    <input type="text" class="form-control" id="geo_tipocamino" name="geo_tipocamino" placeholder="Tipo de camino"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <div class="card container-add-item" table-name="personal_especialidad">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            <h6 class="card-title">INGRESO DE ESPECIALIDADES</h6>
+                            <div class="form-row">
+                                <button type="button" class="btn btn-info btn-sm tbl-add-row"><i class="fa fa-plus"></i>Nuevo...</button>
+                                <table class="table table-bordered tbl-add-item mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Especialidad</th>
+                                            <th class="w-25 text-truncate" title="Cantidad">Cantidad</th>
+                                            <th class="th-actions">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="d-none">
+                                            <td>
+                                                <select id="especialidad_id" name="especialidad_id" class="form-control espec-nom">
+                                                    <option value="">Elegir Especialidad</option>
+                                                    {% for key,esp in esps %}
+                                                        <option value="{{esp.id}}">{{esp.nombre}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <span style="display:none"></span>
+                                            </td>
+                                            <td>
+                                                <input type="number" id="personal_cant" name="personal_cant" class="form-control espec-cant" />
+                                                <span style="display:none"></span>
+                                            </td>
+                                            <td>
+                                                <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE03B;</i>
+                                                </a>
+                                                <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE254;</i>
+                                                </a>
+                                                <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE872;</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <!--
+                                        <tr>
+                                            <td>
+                                                <select class="form-control espec-nom" style="display:none">
+                                                    <option value="">-Elegir Especialidad-</option>
+                                                    <option value="2" selected>Administration</option>
+                                                </select>
+                                                <span>Administration</span>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control espec-cant" value="11" style="display:none" />
+                                                <span>11</span>
+                                            </td>
+                                            <td>
+                                                <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE03B;</i>
+                                                </a>
+                                                <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE254;</i>
+                                                </a>
+                                                <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE872;</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <select class="form-control espec-nom" style="display:none">
+                                                    <option value="">-Elegir Especialidad-</option>
+                                                    <option value="3" selected>Customer Service</option>
+                                                </select>
+                                                <span>Customer Service</span>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control espec-cant" value="13" style="display:none" />
+                                                <span>13</span>
+                                            </td>
+                                            <td>
+                                                <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE03B;</i>
+                                                </a>
+                                                <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE254;</i>
+                                                </a>
+                                                <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                    <i class="material-icons">&#xE872;</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <ul class="nav nav-tabs" id="tabsUpssUps" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tabUpss" data-toggle="tab" href="#contentUpss" role="tab" aria-controls="upss" aria-selected="true">UPSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tabUps" data-toggle="tab" href="#contentUps" role="tab" aria-controls="ups" aria-selected="false">UPS</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane container-add-item fade show active" id="contentUpss" role="tabpanel" aria-labelledby="tabUpss">
+                            <button type="button" class="btn btn-info btn-sm tbl-add-row"><i class="fa fa-plus"></i>Nuevo...</button>
+                            <table class="table table-bordered tbl-add-item mb-0" table-name="ambiente_upssups">
+                                <thead>
+                                    <tr>
+                                        <th class="w-50">Categoria</th>
+                                        <th class="w-50">UPSS</th>
+                                        <th class="w-25">Cant.</th>
+                                        <th class="th-actions"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="d-none">
+                                        <td>
+                                            <!-- not-inp : Elemento no sera considerado para ser insertado o actualizado en BD -->
+                                            <select class="form-control upssups-cat not-inp">
+                                                <option value="">-Categoria-</option>
+                                                {% for key,cat in catUppsUps %}
+                                                    {% if cat.ambiente == 1 %}
+                                                    <option value="{{cat.id}}">{{cat.nombre|capitalize}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <select name="upssups_id" class="form-control upssups-nom"></select>
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="ambiente_total" class="form-control upssups-cant" />
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!--
+                                    <tr>
+                                        <td>
+                                            <select class="form-control espec-nom" style="display:none">
+                                                <option value="">-Elegir Especialidad-</option>
+                                                <option value="2" selected>Administration</option>
+                                            </select>
+                                            <span>Administration</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control espec-cant" value="11" style="display:none" />
+                                            <span>11</span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control espec-nom" style="display:none">
+                                                <option value="">-Elegir Especialidad-</option>
+                                                <option value="3" selected>Customer Service</option>
+                                            </select>
+                                            <span>Customer Service</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control espec-cant" value="13" style="display:none" />
+                                            <span>13</span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane container-add-item fade" id="contentUps" role="tabpanel" aria-labelledby="tabUps">
+                            <button type="button" class="btn btn-info btn-sm tbl-add-row"><i class="fa fa-plus"></i>Nuevo...</button>
+                            <table class="table table-bordered tbl-add-item mb-0" table-name="ambiente_upssups">
+                                <thead>
+                                    <tr>
+                                        <th class="w-50">Categoria</th>
+                                        <th class="w-50">UPS</th>
+                                        <th class="w-25">Cant.</th>
+                                        <th class="th-actions"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="d-none">
+                                        <td>
+                                            <select class="form-control upssups-cat not-inp">
+                                                <option value="">-Categoria-</option>
+                                                {% for key,cat in catUppsUps %}
+                                                    {% if cat.ambiente == 2 %}
+                                                    <option value="{{cat.id}}">{{cat.nombre|capitalize}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <select name="upssups_id" class="form-control upssups-nom"></select>
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="ambiente_total" class="form-control upssups-cant" />
+                                            <span style="display:none"></span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!--
+                                    <tr>
+                                        <td>
+                                            <select class="form-control espec-nom" style="display:none">
+                                                <option value="">-Elegir Especialidad-</option>
+                                                <option value="2" selected>Administration</option>
+                                            </select>
+                                            <span>Administration</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control espec-cant" value="11" style="display:none" />
+                                            <span>11</span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control espec-nom" style="display:none">
+                                                <option value="">-Elegir Especialidad-</option>
+                                                <option value="3" selected>Customer Service</option>
+                                            </select>
+                                            <span>Customer Service</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control espec-cant" value="13" style="display:none" />
+                                            <span>13</span>
+                                        </td>
+                                        <td>
+                                            <a class="add-row" title="Guardar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE03B;</i>
+                                            </a>
+                                            <a class="edit-row" title="Editar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE254;</i>
+                                            </a>
+                                            <a class="delete-row" title="Eliminar" data-toggle="tooltip">
+                                                <i class="material-icons">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <div class="card-body">
+                            <h6 class="card-title">CARAC. TÉC. ELÉCTRICAS</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Potencia instalada (Kw)</label>
+                                    <input type="text" class="form-control" id="electr_potencia" name="electr_potencia" placeholder="Potencia instalada (Kw)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="inputPassword4">Máxima demanda (Kw)</label>
+                                    <input type="text" class="form-control" id="electr_demanda" name="electr_demanda" placeholder="Máxima demanda (Kw)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Potencia contratada (Kw)</label>
+                                    <input type="text" class="form-control" id="electr_contratada" name="electr_contratada" placeholder="Potencia contratada (Kw)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Tarifa Eléctrica (S/.)</label>
+                                    <input type="text" class="form-control" id="electr_tarifa" name="electr_tarifa" placeholder="Tarifa Eléctrica (S/.)" />
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Costo Kw/h</label>
+                                    <input type="text" class="form-control" id="electr_costokw" name="electr_costokw" placeholder="Costo Kw/h" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Cantidad de pozos puesta a tierra</label>
+                                    <input type="text" class="form-control" id="electr_cantpozotierra" name="electr_cantpozotierra" placeholder="Cantidad de pozos puesta a tierra" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Costo Kvar/h</label>
+                                    <input type="text" class="form-control" id="electr_costokvar" name="electr_costokvar" placeholder="Costo Kvar/h" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <div class="card-body">
+                            <h6 class="card-title">RESIDUOS SOLIDOS</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Biocontaminados (Kg)</label>
+                                    <input type="text" class="form-control" id="electr_potencia" name="electr_potencia" placeholder="Biocontaminados (Kg)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="inputPassword4">Comunes (Kg)</label>
+                                    <input type="text" class="form-control" id="resid_comunes" name="electr_demanda" placeholder="Comunes (Kg)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Especiales (Kg)</label>
+                                    <input type="text" class="form-control" id="resid_especiales" name="resid_especiales" placeholder="Especiales (Kg)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="periodo">Cuenta con equipo de tratamiento de residuos</label>
+                                    <input type="text" class="form-control" id="resid_conequipo" name="resid_conequipo" placeholder="Cuenta con equipo de tratamiento de residuos" />
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Operatividad</label>
+                                    <input type="text" class="form-control" id="resid_operatividad" name="resid_operatividad" placeholder="Operatividad" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Costo unitario de traslado de los residuos (S/Kg)</label>
+                                    <input type="text" class="form-control" id="resid_costounitario" name="resid_costounitario" placeholder="Costo unitario de traslado de los residuos (S/Kg)" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Costo mensual de traslado de los residuos al relleno sanitario</label>
+                                    <input type="text" class="form-control" id="resid_costomensual" name="resid_costomensual" placeholder="Costo mensual de traslado de los residuos al relleno sanitario" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="direccion">Ubicación del relleno sanitario</label>
+                                    <input type="text" class="form-control" id="resid_ubicrell" name="resid_ubicrell" placeholder="Ubicación del relleno sanitario" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <div class="card-body">
+                            <h6 class="card-title">REDES DE COMUNICACIÓN</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="comunic_telefono">Teléfono</label>
+                                    <input type="text" class="form-control" id="comunic_telefono" name="comunic_telefono" placeholder="Teléfono" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="comunic_internet">Internet</label>
+                                    <input type="text" class="form-control" id="comunic_internet" name="comunic_internet" placeholder="Internet" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="comunic_radio">Radio</label>
+                                    <input type="text" class="form-control" id="comunic_radio" name="comunic_radio" placeholder="Radio" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="comunic_cable">Cable</label>
+                                    <input type="text" class="form-control" id="comunic_cable" name="comunic_cable" placeholder="Cable" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" table-name="establecimiento">
+                        <div class="card-body">
+                            <h6 class="card-title">ESTADO DE CONSERVACIÓN</h6>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Arquitectura</label>
+                                    <input type="text" class="form-control" id="conserv_arquitect" name="conserv_arquitect" placeholder="Arquitectura" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Estructura</label>
+                                    <input type="text" class="form-control" id="conserv_estruct" name="conserv_estruct" placeholder="Estructura" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Instalaciones Eléctricas</label>
+                                    <input type="text" class="form-control" id="conserv_instaelect" name="conserv_instaelect" placeholder="Instalaciones Eléctricas" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="d-none" for="codigo">Instalaciones Sanitarias</label>
+                                    <input type="text" class="form-control" id="conserv_instasanit" name="conserv_instasanit" placeholder="Instalaciones Sanitarias" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card-columns">
+
+                    {% for idtipoattr,tipoAttrObj in attrs %}
+                    <div class="card atributo" data-idtipoattr="{{idtipoattr}}" table-name="atributo_establecimiento">
+                        <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
+                        <div class="card-body">
+                            {% set tipoAttrArr = tipoAttrObj.all() %}
+                            {% set tipoAttrName = "" %}
+                            {% set allAttrs = {} %}
+
+                            {% for tipoName,attrObj in tipoAttrArr %}
+                                {% set tipoAttrName = tipoName %}
+                                {% set allAttrs = attrObj.all() %}
+                            {% endfor %}
+
+                            <h6 class="card-title">{{tipoAttrName}}</h6>
+
+                            <div class="form-row">
+                                <!--div class="form-group col-md-12"-->
+                                <table class="table table-sm table-borderless mb-0">
+                                    {% for attr in allAttrs %}
+                                    <tr>
+                                        <td>
+                                            <label for="{{attr.idVal}}">{{attr.nombre}}</label>
+                                            <input type="hidden" name="atributo_id" value="{{attr.idAttr}}" />
+                                        </td>
+                                        <td class="w-25">
+                                            <select id="{{attr.idVal}}" name="seleccionado" class="form-control sel-attr">
+                                                <option value="">----</option>
+                                                <option value="0">Si</option>
+                                                <option value="1">No</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr table-name="atributo">
+                                        <td>
+                                            <!--label for="{{attr.inp_name}}">Otro</label-->
+                                            <input type="hidden" name="tipo_atributo_id" value="{{idtipoattr}}" />
+                                            <input type="text" name="nombre_atrib" class="form-control inp-other-attr d-none" placeholder="Otro?" disabled />
+                                        </td>
+                                        <td class="w-25">
+                                            <button type="button" class="form-control btn btn-info btn-sm btn-other-attr">Otro?</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--/div-->
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary">Guardar</button> &nbsp;
+                    <a class="btn btn-secondary" href="{{ baseUrl() }}establecimientos" role="button">Ir a la Lista</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block script %}
+    <!--script src="https://socket-menu.herokuapp.com/socket.io/socket.io.js"></script>
+    <script>window["SOCKET_URL"]="{{ socketUrl() }}";</script> <script src="{{ baseUrl() }}js/menu/socket.js"></script-->
+    <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script-->
+
+    <!-- Validacion del formulario -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/localization/messages_es_PE.min.js"></script>
+    <script src="{{ baseUrl() }}js/libs/jquery/jquery-validate.bootstrap-tooltip.min.js?v=e8e8ew8we"></script>
+
+    <script src="{{ baseUrl() }}js/libs/loading/jquery.loadingModal.min.js?v=SD66SD5DS56"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script-->
+
+    <script src="{{ baseUrl() }}js/libs/my/serialize.js?v=8sddffd98d6"></script>
+    <script src="{{ baseUrl() }}js/pages/admin/establecimiento-nuevo.js?v=dsds6ds6sd6"></script>
+
+{% endblock %}

@@ -28,6 +28,8 @@ $app->group('/establecimientos', function () {
 
     $this->get('[/[index[/[{page}[/{perpage}]]]]]', 'EstablecimientoController:index')->setName('listar-establecimientos'); // Listar
 
+    $this->get('/nuevo[/]', 'EstablecimientoController:nuevo');
+
     $this->post('[/guardar[/]]', 'EstablecimientoController:guardar');
 
     $this->group('/{id}', function () {
