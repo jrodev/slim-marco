@@ -133,13 +133,13 @@ class EstablecimientoController extends Controller
             // iniciando Transaccion
             \App\Model::beginTransaction();
             $establecimiento->save();
-
+            $ins = array("ins1"=>false,"ins2"=>false,"ins3"=>false);
             // Armando Datos para guardar en tabla personal_especialidad
             if (key_exists("personal_especialidad", $postData)) {
                 $arrPersEspc = $this->getRowsForInserted(
                     $postData["personal_especialidad"], array("establecimiento_id"=>$establecimiento->id)
                 );
-                $personalEspecialidad->insert($arrPersEspc);
+                $ins["ins1"]=$personalEspecialidad->insert($arrPersEspc);
             }
 
             // Armando Datos para guardar en tabla ambiente_upssups
@@ -147,14 +147,14 @@ class EstablecimientoController extends Controller
                 $arrAmbUpssUps = $this->getRowsForInserted(
                     $postData["ambiente_upssups"], array("establecimiento_id"=>$establecimiento->id)
                 );
-                $ambienteUpssups->insert($arrAmbUpssUps);
+                $ins["ins2"]=$ambienteUpssups->insert($arrAmbUpssUps);
             }
             // Armando Datos para guardar en tabla atributo_establecimiento
             if (key_exists("atributo_establecimiento", $postData)) {
                 $arrAtribEstab = $this->getRowsForInserted(
                     $postData["atributo_establecimiento"], array("establecimiento_id"=>$establecimiento->id)
                 );
-                $atributoEstablecimiento->insert($arrAtribEstab);
+                $ins["ins3"]=$atributoEstablecimiento->insert($arrAtribEstab);
             }
 
             //$establecimiento = Establecimiento::create();   //!d($user->id,$user);
@@ -162,7 +162,9 @@ class EstablecimientoController extends Controller
             \App\Model::commit();
 
             // Respuesta OK 200
-            $data = array("status"=>1, "post"=>$postData, "args"=>$args, "msg"=>"Se guardo Establecimiento!");
+            $data = array(
+                "status"=>1, "post"=>$postData, "ins"=>$ins, "args"=>$args, "msg"=>"Se guardo Establecimiento!"
+            );
 
         } catch (Exception $ex) {
             \App\Model::rollBack();
