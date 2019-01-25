@@ -252,4 +252,35 @@ $(document).ready(function() {
         }
     });
 
+    // Imagenes de establecimientos
+    (function () {
+        var $button = $('.images .pic');
+        var $images = $('.images');
+        var count = 0;
+        $button.on('click', function() {
+            var $uploader = $('<input type="file" name="fime_'+(++count)+'" accept="image/*" class="d-none" />');
+            $uploader.on('change', function() {
+                $thisUploader = $(this);
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $divImg = $(
+                        "<div class='img' style='background-image: url(" + event.target.result + ");'>"+
+                             "<span>Eliminar</span>"+
+                         "</div>"
+                    );
+                    $divImg.prependTo($images).append($thisUploader);
+                }
+                reader.readAsDataURL($thisUploader[0].files[0]);
+            });
+            $uploader.click();
+        })
+
+
+
+        $images.on('click', '.img', function() {
+            $(this).remove();
+        })
+
+    })();
+
 });

@@ -11,6 +11,7 @@ use App\Models\Establecimiento;
 use App\Models\PersonalEspecialidad;
 use App\Models\AmbienteUpssups;
 use App\Models\AtributoEstablecimiento;
+use App\Models\Atributo;
 /**
  * Acciones para el Controlador Home
  */
@@ -133,6 +134,7 @@ class EstablecimientoController extends Controller
             // iniciando Transaccion
             \App\Model::beginTransaction();
             $establecimiento->save();
+
             $ins = array("ins1"=>false,"ins2"=>false,"ins3"=>false);
             // Armando Datos para guardar en tabla personal_especialidad
             if (key_exists("personal_especialidad", $postData)) {
@@ -149,8 +151,30 @@ class EstablecimientoController extends Controller
                 );
                 $ins["ins2"]=$ambienteUpssups->insert($arrAmbUpssUps);
             }
+
             // Armando Datos para guardar en tabla atributo_establecimiento
             if (key_exists("atributo_establecimiento", $postData)) {
+                $arrAtribEstab = $this->getRowsForInserted(
+                    $postData["atributo_establecimiento"], array("establecimiento_id"=>$establecimiento->id)
+                );
+                $ins["ins3"]=$atributoEstablecimiento->insert($arrAtribEstab);
+            }
+
+            // Armando Datos para guardar en tabla atributo
+            if (key_exists("atributo", $postData)) {
+                foreach ($postData["atributo"] as $row) {
+                    $atributo = new Atributo;
+                    $atributo->tipo_atributo_id = $row["tipo_atributo_id"];
+                    $atributo->nombre_atrib     = $row["nombre_atrib"];
+                    $atributo->save();
+
+                    // Almacenando los atributos nuevos, ya insertados, en la tabla atributo_establecimiento
+                    $postData["atributo_establecimiento"][] = array(
+                        "atributo_id"=>$atributo->id, "seleccionado"=>1
+                    );
+                }
+
+                // Armando Datos para guardar en tabla atributo_establecimiento
                 $arrAtribEstab = $this->getRowsForInserted(
                     $postData["atributo_establecimiento"], array("establecimiento_id"=>$establecimiento->id)
                 );
