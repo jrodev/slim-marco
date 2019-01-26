@@ -9,139 +9,121 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" type="text/css" rel="stylesheet" />
 
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css" rel="stylesheet" />
+
     <link href="{{ baseUrl() }}css/pages/admin/establecimiento-index.css" type="text/css" rel="stylesheet"/>
+
 {% endblock %}
 
 {% block content %}
 
-    <table id="tblEstablecimiento" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012/08/06</td>
-                <td>$137,500</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td>55</td>
-                <td>2010/10/14</td>
-                <td>$327,900</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009/09/15</td>
-                <td>$205,500</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                <td>23</td>
-                <td>2008/12/13</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>30</td>
-                <td>2008/12/19</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                <td>43</td>
-                <td>2012/12/18</td>
-                <td>$313,500</td>
-            </tr>
-            <tr>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>19</td>
-                <td>2010/03/17</td>
-                <td>$385,750</td>
-            </tr>
-            <tr>
-                <td>Michael Bruce</td>
-                <td>Javascript Developer</td>
-                <td>Singapore</td>
-                <td>29</td>
-                <td>2011/06/27</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011/01/25</td>
-                <td>$112,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+<div class="col-md">
+    <ul class="nav nav-tabs" id="tabsUpssUps" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="tabEstabs" data-toggle="tab" href="#contentEstabs" role="tab" aria-controls="estabs" aria-selected="true">
+                <h5>Listado de Establecimiento</h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tabEstado" data-toggle="tab" href="#contentEstado" role="tab" aria-controls="estado" aria-selected="false">
+                <h5>Reporte - Estado de Conservacion</h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tabPie" data-toggle="tab" href="#contentPie" role="tab" aria-selected="false">
+                <h5>Grafico - Estado de Conservacion</h5>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="contentEstabs" role="tabpanel" aria-labelledby="tabEstabs">
+
+            <table id="tblEstablecimiento" class="display table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        {% for i,colName in cols %}
+                        <th>{{colName}}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i,estab in estabs %}
+                    <tr>
+                        <td>{{estab.codigo}}</td>
+                        <td>{{estab.establecimiento}}</td>
+                        <td>{{estab.categoria}}</td>
+                        <td>{{estab.departamento}}</td>
+                        <td>{{estab.provincia}}</td>
+                        <td>{{estab.distrito}}</td>
+                        <td>{{estab.direccion}}</td>
+
+                        <td>{{attribute(estab, 'Año Funcionamiento')}}</td>
+                        <td>{{attribute(estab, 'N° Camas')}}</td>
+                        <td>{{attribute(estab, 'N° Pisos')}}</td>
+                        <td>{{attribute(estab, 'Inversión Total')}}</td>
+                        <td>{{attribute(estab, 'Área de Terreno')}}</td>
+                        <td>{{attribute(estab, 'Área Construida')}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        {% for i,colName in cols %}
+                        <th>{{colName}}</th>
+                        {% endfor %}
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <div class="tab-pane fade" id="contentEstado" role="tabpanel" aria-labelledby="tabEstado">
+
+            <table id="tblEstados" class="display table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        {% for i,colName in cols2 %}
+                        <th>{{colName}}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set pars = {1:'Malo', 2:'Regular', 3:'Bueno'} %}
+                    {% for i,estado in estados %}
+                        <tr>
+                            <td>{{attribute(estado, 'Red Asistencial')}}</td>
+                            <td>{{attribute(estado, 'Establecimiento de Salud')}}</td>
+
+                            {% set val1 = pars[attribute(estado, 'Arquitectura')] %}
+                            {% set val2 = pars[attribute(estado, 'Estructura')] %}
+                            {% set val3 = pars[attribute(estado, 'Instalaciones Eléctricas')] %}
+                            {% set val4 = pars[attribute(estado, 'Instalaciones Sanitarias')] %}
+                            {% set result = pars[attribute(estado, 'Estado General')] %}
+                            <td>{{val1}}</td>
+                            <td>{{val2}}</td>
+                            <td>{{val3}}</td>
+                            <td>{{val4}}</td>
+                            <td class="status-{{result}}">{{result}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        {% for i,colName in cols2 %}
+                        <th>{{colName}}</th>
+                        {% endfor %}
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+        <div class="tab-pane fade" id="contentPie" role="tabpanel" aria-labelledby="tabPie">
+
+            <canvas id="chart-area"></canvas>
+
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 
@@ -151,6 +133,9 @@
     <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script-->
 
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ baseUrl() }}js/libs/jquery/Chart.bundle.min.js?v=SD6SD6DD6S"></script>
 
     <script src="{{ baseUrl() }}js/libs/my/serialize.js?v=8sddffd98d6"></script>
     <script src="{{ baseUrl() }}js/pages/admin/establecimiento-index.js?v=dsds6ds6sd6"></script>

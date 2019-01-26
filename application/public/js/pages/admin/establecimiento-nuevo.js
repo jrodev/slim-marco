@@ -157,7 +157,7 @@ $(document).ready(function() {
 
             console.log("oAllRowsPost->",oAllRowsPost);
             //return ;
-            $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'});
+            $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'}).loadingModal('show');
             $.ajax({
                 url : App.baseUrl + 'establecimientos', // la URL para la petición
                 data : oAllRowsPost, // la información a enviar // (también es posible utilizar una cadena de datos)
@@ -281,6 +281,69 @@ $(document).ready(function() {
             $(this).remove();
         })
 
+    })();
+
+    // Trayendo datos para migrar
+
+    (function(){
+        var timer = null;
+
+        $('#codigo').tooltip({ boundary: 'window' }); // Hbilitando Tooltip
+
+        $("#codigo").on('keyup', function () {
+
+            $(this).removeClass('is-invalid').addClass('is-valid');
+
+            var thisVal = $(this).val();
+            var $viewMigrar = $('.view-migrar');
+
+            clearTimeout(timer);
+
+            if (thisVal) {
+                var apiUrl = App.baseUrl + 'establecimientos/migrar?codigo='+thisVal;
+                timer = setTimeout(function () {
+                    $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'}).loadingModal('show');
+                    $.ajax({
+                        url : apiUrl, // la URL para la petición
+                        type : 'GET',// especifica si será una petición POST o GET
+                        dataType : 'json', // el tipo de información que se espera de respuesta
+                        success : function (oJson) {
+                            //$('<h1/>').text(json.title).appendTo('body');
+                            console.log("resp:",oJson);
+
+                            if (oJson.exist == 1) {
+                                $("#codigo").removeClass('is-valid').addClass('is-invalid');
+                                $("#codigo").attr('title','Codigo ya Existe!').tooltip('show');
+                                return ;
+                            }
+
+                            $("#codigo").removeAttr('title');
+
+                            if (oJson.status==1 && oJson.activo==3) {
+                                var rowMigrate = oJson.data[0];
+                                $viewMigrar.each(function (i, ele) {
+                                    var colName = $(ele).attr('name');
+                                    // Cargando Valores
+                                    $(ele).val( rowMigrate[colName] );
+                                    $(ele).trigger('blur');
+                                });
+                            } else {
+                                // limpiando valores
+                                $viewMigrar.val('');
+                                $viewMigrar.removeClass('is-valid');
+                            }
+                        },
+                        error : function(xhr, status) {
+                            console.log("error:",arguments);
+                        },
+                        complete : function(xhr, status) {
+                            $('body').loadingModal('hide');
+                            console.log("complete!");
+                        }
+                    });
+                }, 800);
+            }
+        });
     })();
 
 });

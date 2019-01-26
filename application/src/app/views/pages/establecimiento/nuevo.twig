@@ -19,8 +19,8 @@
 
 {% block content %}
     <h4 class="text-center">FICHA TÉCNICA DEL ESTABLECIMIENTO DE SALUD</h4>
-    <form id="frmSaveEstab" method="post" enctype="multipart/form-data">
-        <div id="thisContainer" class="container">
+    <form id="frmSaveEstab" method="post" enctype="multipart/form-data" autocomplete='off'>
+        <div id="thisContainer">
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card" table-name="establecimiento">
@@ -29,23 +29,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Codigo</label>
-                                    <input type="text" class="form-control required" id="codigo" name="codigo" placeholder="Ingrese codigo"/>
+                                    <input type="text" class="form-control required" id="codigo" name="codigo" placeholder="Ingrese codigo" autocomplete="disabled" />
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="inputPassword4">Nombre Establecimiento</label>
-                                    <input type="text" class="form-control required" id="nombre" name="nombre" placeholder="Nombre Establecimiento"/>
+                                    <input type="text" class="form-control required view-migrar" id="nombre" name="nombre" placeholder="Nombre Establecimiento" autocomplete="disabled" />
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="direccion">Direccion</label>
-                                    <input type="text" class="form-control required" id="direccion" name="direccion" placeholder="Direccion"/>
+                                    <input type="text" class="form-control required view-migrar" id="direccion" name="direccion" placeholder="Direccion" autocomplete="disabled" />
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="periodo">Periodo</label>
-                                    <input type="text" class="form-control" id="periodo" name="periodo" placeholder="Periodo"/>
+                                    <input type="text" class="form-control" id="periodo" name="periodo" placeholder="Periodo"  autocomplete="disabled" />
                                 </div>
                                 <div class="form-group col-md-12 mb-0">
                                     <label class="d-none" for="periodo">Categoria</label>
-                                    <select class="form-control required" id="categoria_id" name="categoria_id" placeholder="Periodo">
+                                    <select class="form-control required view-migrar" id="categoria_id" name="categoria_id" placeholder="Periodo">
                                         <option value="">Categoria ...</option>
                                         <option value="1">Categoria 1</option>
                                         <option value="2">Categoria 2</option>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="form-group col-md-12 mb-0">
                                     <label class="d-none" for="periodo">Distrito</label>
-                                    <select class="form-control required" id="distrito_id" name="distrito_id" placeholder="Distrito">
+                                    <select class="form-control required view-migrar" id="distrito_id" name="distrito_id" placeholder="Distrito">
                                         <option value="">Distrito ...</option>
                                         <option value="1">Lima - Metrop.</option>
                                     </select>
@@ -106,23 +106,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Diris / Diresa</label>
-                                    <input type="text" class="form-control" id="red_dirisdiresa" name="red_dirisdiresa" placeholder="Diris / Diresa"/>
+                                    <input type="text" class="form-control view-migrar" id="red_dirisdiresa" name="red_dirisdiresa" placeholder="Diris / Diresa"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="inputPassword4">Red</label>
-                                    <input type="text" class="form-control" id="red_red" name="red_red" placeholder="Nombre Establecimiento"/>
+                                    <input type="text" class="form-control view-migrar" id="red_red" name="red_red" placeholder="Red"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="direccion">Microred</label>
-                                    <input type="text" class="form-control" id="red_microred" name="red_microred" placeholder="Direccion"/>
+                                    <input type="text" class="form-control view-migrar" id="red_microred" name="red_microred" placeholder="Microred"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="periodo">Institución</label>
-                                    <input type="text" class="form-control" id="red_institucion" name="red_institucion" placeholder="Periodo"/>
+                                    <input type="text" class="form-control view-migrar" id="red_institucion" name="red_institucion" placeholder="Institución"/>
                                 </div>
                                 <div class="form-group col-md-12 mb-0">
                                     <label class="d-none" for="periodo">Área Geográfica</label>
-                                    <select class="form-control" id="red_areageografica" name="red_areageografica" placeholder="Área Geográfica">
+                                    <select class="form-control view-migrar" id="red_areageografica" name="red_areageografica" placeholder="Área Geográfica">
                                         <option value="">Área Geográfica ...</option>
                                         <option value="Rural">Rural</option>
                                         <option value="Urbana">Urbana</option>
@@ -141,15 +141,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Año puesta en marcha</label>
-                                    <input type="text" class="form-control" id="gral_aniomarcha" name="gral_aniomarcha" placeholder="Año puesta en marcha"/>
+                                    <input type="text" class="form-control view-migrar" id="gral_aniomarcha" name="gral_aniomarcha" placeholder="Año puesta en marcha"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="gral_nrocamas">N° de camas (Internamiento/Hospitalización)</label>
-                                    <input type="text" class="form-control" id="gral_nrocamas" name="gral_nrocamas" placeholder="N° de camas"/>
+                                    <input type="text" class="form-control view-migrar" id="gral_nrocamas" name="gral_nrocamas" placeholder="N° de camas"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="gral_poblacbenefic">Población Beneficiaria</label>
-                                    <input type="text" class="form-control" id="gral_poblacbenefic" name="gral_poblacbenefic" placeholder="Población Beneficiaria"/>
+                                    <input type="text" class="form-control view-migrar" id="gral_poblacbenefic" name="gral_poblacbenefic" placeholder="Población Beneficiaria"/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="gral_inversionInfra">Inversión en Infraestructura</label>
@@ -167,7 +167,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card" table-name="establecimiento">
+                    <div class="card">
                         <!--img class="card-img-top img-thumbnail" src="..." alt="Card image cap"-->
                         <div class="card-body">
                             <h6 class="card-title">Imagenes de Establecimiento</h6>
@@ -686,19 +686,39 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Arquitectura</label>
-                                    <input type="text" class="form-control" id="conserv_arquitect" name="conserv_arquitect" placeholder="Arquitectura" />
+                                    <select id="conserv_arquitect" name="conserv_arquitect" class="form-control">
+                                        <option value="">- Arquitectura -</option>
+                                        <option value="1">Malo</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Bueno</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Estructura</label>
-                                    <input type="text" class="form-control" id="conserv_estruct" name="conserv_estruct" placeholder="Estructura" />
+                                    <select id="conserv_estruct" name="conserv_estruct" class="form-control">
+                                        <option value="">- Estructura -</option>
+                                        <option value="1">Malo</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Bueno</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Instalaciones Eléctricas</label>
-                                    <input type="text" class="form-control" id="conserv_instaelect" name="conserv_instaelect" placeholder="Instalaciones Eléctricas" />
+                                    <select id="conserv_instaelect" name="conserv_instaelect" class="form-control">
+                                        <option value="">- Instal. Eléctricas -</option>
+                                        <option value="1">Malo</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Bueno</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="d-none" for="codigo">Instalaciones Sanitarias</label>
-                                    <input type="text" class="form-control" id="conserv_instasanit" name="conserv_instasanit" placeholder="Instalaciones Sanitarias" />
+                                    <select id="conserv_instasanit" name="conserv_instasanit" class="form-control">
+                                        <option value="">- Instal. Sanitarias -</option>
+                                        <option value="1">Malo</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Bueno</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -768,7 +788,6 @@
                 </div>
             </div>
         </div>
-
     </form>
 
 {% endblock %}
