@@ -17,10 +17,10 @@ class IndexController extends Controller
     {
         //d($GLOBALS); exit;
         //d($req, $resp, $args); //exit;
-        \App\Model::beginTransaction();
+        /*\App\Model::beginTransaction();
         $user = User::create(['username'=>'Jose ramos','email'=>'jramos@jramos.com','password'=>'88wq877wq7']);
         !d($user->id,$user);
-        \App\Model::commit();
+        \App\Model::commit();*/
         //\App\Model::rollBack();
 
         //d($user);
