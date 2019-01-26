@@ -157,7 +157,7 @@ $(document).ready(function() {
 
             console.log("oAllRowsPost->",oAllRowsPost);
             //return ;
-            $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'});
+            $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'}).loadingModal('show');
             $.ajax({
                 url : App.baseUrl + 'establecimientos', // la URL para la petición
                 data : oAllRowsPost, // la información a enviar // (también es posible utilizar una cadena de datos)
@@ -251,5 +251,99 @@ $(document).ready(function() {
             });
         }
     });
+
+    // Imagenes de establecimientos
+    (function () {
+        var $button = $('.images .pic');
+        var $images = $('.images');
+        var count = 0;
+        $button.on('click', function() {
+            var $uploader = $('<input type="file" name="fime_'+(++count)+'" accept="image/*" class="d-none" />');
+            $uploader.on('change', function() {
+                $thisUploader = $(this);
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $divImg = $(
+                        "<div class='img' style='background-image: url(" + event.target.result + ");'>"+
+                             "<span>Eliminar</span>"+
+                         "</div>"
+                    );
+                    $divImg.prependTo($images).append($thisUploader);
+                }
+                reader.readAsDataURL($thisUploader[0].files[0]);
+            });
+            $uploader.click();
+        })
+
+
+
+        $images.on('click', '.img', function() {
+            $(this).remove();
+        })
+
+    })();
+
+    // Trayendo datos para migrar
+
+    (function(){
+        var timer = null;
+
+        $('#codigo').tooltip({ boundary: 'window' }); // Hbilitando Tooltip
+
+        $("#codigo").on('keyup', function () {
+
+            $(this).removeClass('is-invalid').addClass('is-valid');
+
+            var thisVal = $(this).val();
+            var $viewMigrar = $('.view-migrar');
+
+            clearTimeout(timer);
+
+            if (thisVal) {
+                var apiUrl = App.baseUrl + 'establecimientos/migrar?codigo='+thisVal;
+                timer = setTimeout(function () {
+                    $('body').loadingModal({text:'Procesando...', 'animation':'wanderingCubes'}).loadingModal('show');
+                    $.ajax({
+                        url : apiUrl, // la URL para la petición
+                        type : 'GET',// especifica si será una petición POST o GET
+                        dataType : 'json', // el tipo de información que se espera de respuesta
+                        success : function (oJson) {
+                            //$('<h1/>').text(json.title).appendTo('body');
+                            console.log("resp:",oJson);
+
+                            if (oJson.exist == 1) {
+                                $("#codigo").removeClass('is-valid').addClass('is-invalid');
+                                $("#codigo").attr('title','Codigo ya Existe!').tooltip('show');
+                                return ;
+                            }
+
+                            $("#codigo").removeAttr('title');
+
+                            if (oJson.status==1 && oJson.activo==3) {
+                                var rowMigrate = oJson.data[0];
+                                $viewMigrar.each(function (i, ele) {
+                                    var colName = $(ele).attr('name');
+                                    // Cargando Valores
+                                    $(ele).val( rowMigrate[colName] );
+                                    $(ele).trigger('blur');
+                                });
+                            } else {
+                                // limpiando valores
+                                $viewMigrar.val('');
+                                $viewMigrar.removeClass('is-valid');
+                            }
+                        },
+                        error : function(xhr, status) {
+                            console.log("error:",arguments);
+                        },
+                        complete : function(xhr, status) {
+                            $('body').loadingModal('hide');
+                            console.log("complete!");
+                        }
+                    });
+                }, 800);
+            }
+        });
+    })();
 
 });

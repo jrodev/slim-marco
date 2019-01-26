@@ -32,6 +32,8 @@ $app->group('/establecimientos', function () {
 
     $this->post('[/guardar[/]]', 'EstablecimientoController:guardar');
 
+    $this->get('/migrar[/]', 'EstablecimientoController:migrar');
+
     $this->group('/{id}', function () {
 
         $this->get('[/ver[/]]', 'EstablecimientoController:ver');
@@ -45,8 +47,6 @@ $app->group('/establecimientos', function () {
 
 $app->group('/upssups', function () {
     $this->get('[/[cat/{idcat}[/]]]', 'UpssupsController:index')->setName('listar-upssups'); // Listar
-
-
 });
 
 $app->get('/test[/[index[/]]]', \App\Controllers\Test\IndexController::class.":index");
