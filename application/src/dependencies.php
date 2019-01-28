@@ -108,9 +108,9 @@ $container['IndexController'] = function ($c) {
 	return new App\Controllers\Test\IndexController($settings, $c['view'], $c['router']);
 };
 
-$container['HomeController'] = function ($c) {
+$container['LoginController'] = function ($c) {
     $settings = $c->get('settings');
-	return new App\Controllers\IndexController($settings, $c['view'], $c['router']);
+	return new App\Controllers\LoginController($settings, $c['view'], $c['router'], $c['db']);
 };
 
 $container['EstablecimientoController'] = function ($c) {

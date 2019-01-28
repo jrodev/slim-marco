@@ -2,7 +2,7 @@
 setlocale(LC_TIME, "pe_PE");
 //date_default_timezone_set('pe_PE');
 date_default_timezone_set('America/Lima');
-$fecha=UCfirst(strftime("%A, %d %B %Y")); 
+$fecha=UCfirst(strftime("%A, %d %B %Y"));
 $insertar = mysql_connect("localhost","root","admin812");
 mysql_select_db('oniees', $insertar);
 
@@ -16,8 +16,8 @@ $rs_red = mysql_query( $sql_infraes, $insertar);
 
 ?>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script src="js/Chart.bundle.js"></script>
-<script src="js/utils.js"></script>
+<script src="../js/Chart.bundle.js"></script>
+<script src="../js/utils.js"></script>
 
 
 <body>
@@ -35,15 +35,15 @@ $rs_red = mysql_query( $sql_infraes, $insertar);
 			data: {
 				datasets: [{
 					data: [
-					<?php 
-				//	while($fila = mysql_fetch_array($rs_red)){ 
+					<?php
+				//	while($fila = mysql_fetch_array($rs_red)){
 					 //echo $fila["valor"]."," ;
 					?>
 						20,
 						30,
 						50,
 						20,
-					<?php 
+					<?php
 						//}
 					?>
 					],
@@ -52,7 +52,7 @@ $rs_red = mysql_query( $sql_infraes, $insertar);
 						window.chartColors.orange,
 						window.chartColors.red,
 						window.chartColors.blue,
-						
+
 					],
 					label: 'Dataset 1'
 				}],
@@ -61,7 +61,7 @@ $rs_red = mysql_query( $sql_infraes, $insertar);
 					'Regular',
 					'Malo',
 					'Ninguno',
-					
+
 				]
 			},
 			options: {
@@ -110,5 +110,3 @@ $rs_red = mysql_query( $sql_infraes, $insertar);
 		});
 	</script>
 </body>
-
-

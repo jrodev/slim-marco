@@ -4,18 +4,18 @@
 <head>
 <meta charset="utf-8">
 <title>ONIEES - Observatorio Nacional de Infraestructura, Equipamiento y Mantenimiento de Establecimientos de Salud - Perú</title>
-   <link rel="stylesheet" href="css/styles.css">
-   <link rel="stylesheet" type="text/css" href="css/estilo.css">
+   <link rel="stylesheet" href="../css/styles.css">
+   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="js/script.js"></script>
+   <script src="../js/script.js"></script>
 </head>
 
 <body>
 <div id="principal">
 
 <div id="header">
-<img src="images/logo_propuesto.png" width="180" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/>
+<img src="../images/logo_propuesto.png" width="180" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/>
 
 <?php include("menu.php"); ?><br>
 
@@ -29,7 +29,7 @@
     <li>EQUIPAMIENTO. Es el conjunto de bienes de un establecimiento de salud necesarios  para el desarrollo de prestaciones de salud o actividades administrativas.  Comprende equipos, mobiliario, instrumental y vehículos.</li>
   </ul>
   <ul>
-    <li>EQUIPO MÉDICO. 
+    <li>EQUIPO MÉDICO.
     Es el equipo que se usa  con fines diagnósticos o tratamiento de enfermedades o de rehabilitación  después de una enfermedad o lesión; se les puede usar individualmente con  cualquier accesorio o consumible, o con otro equipo médico. Requieren  calibración y mantenimiento, actividades que deben ser realizadas por  ingenieros o técnicos de la especialidad.</li>
 </ul>
   <ul>
@@ -93,7 +93,7 @@
     <li>INSTALACIONES. Conjunto de redes, las  cuales están comprendidas las líneas vitales, que cumplen la función de  transportar energía, fluidos y datos desde un punto de generación hasta el  paciente, equipo o sistema que los utiliza. En los establecimientos de salud se  utilizan instalaciones de diversos tipos como:</li>
   </ul>
   <ul>
-    <li>INSTALACIONES ELÉCTRICAS: 
+    <li>INSTALACIONES ELÉCTRICAS:
       <blockquote>
         <p>• Instalaciones  eléctricas de media tensión<br>
           •Instalaciones  eléctricas de baja tensión<br>
@@ -110,7 +110,7 @@
               • Instalaciones de aire  acondicionado</p>
           </blockquote>
       </li>
-    
+
     <li>INSTALACIONES SANITARIAS:
       <blockquote>
         <p>• Instalaciones de  agua: potable, caliente, blanda.<br>
@@ -118,7 +118,7 @@
           • Instalaciones de agua  contraincendios</p>
         </blockquote>
       </li>
-    
+
     <li>INSTALACIONES DE  TELECOMUNICACIONES:
       <blockquote>
         <p>• Instalaciones de  telefonía<br>
@@ -126,7 +126,7 @@
           • Instalaciones de  telecomunicaciones por cable</p>
       </blockquote>
       </li>
-    
+
     <li>INFRAESTRUCTURA ESTRATÉGICA.
                             Edificación con la infraestructura e instalaciones acabadas,  comprende las siguientes Unidades Productoras de Servicios de Salud (UPSS):  Emergencia, Centro Obstétrico, Diagnóstico por Imagen, Centro Quirúrgico,  Cuidados Intensivos, Hospitalización, Patología Clínica y Farmacia.    </li></ul>
   <p><strong>MANTENIMIENTO</strong></p>

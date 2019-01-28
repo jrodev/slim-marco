@@ -280,14 +280,12 @@ class EstablecimientoController extends Controller
             'status' => 1,
             'exist'  => ($activo==1) ? 1 : 0 ,
             'activo' => $activo,
-            'data'   => ($activo==3) ? $estabs : []
+            'data'   => ($activo==2) ? $estabs : []
         );
-
 
         //if ($format == 'json') {
         return $resp->withJson($arrResp);
         //}
-
         //return $this->view->render($resp, 'views/upssups/index.twig', ['uppsUps'=>$uppsUps]);
     }
 
