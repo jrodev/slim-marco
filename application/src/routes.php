@@ -49,6 +49,11 @@ $app->group('/upssups', function () {
     $this->get('[/[cat/{idcat}[/]]]', 'UpssupsController:index')->setName('listar-upssups'); // Listar
 });
 
+$app->group('/login', function () {
+    $this->get('[/index[/]]', 'LoginController:index');
+    $this->post('[/post[/]]', 'LoginController:post');
+});
+
 // Ruteando site antiguo
 $app->get('[/[{page_name}]]', function($req, $resp, $args) use($app){
     $container = $app->getContainer();
@@ -61,10 +66,7 @@ $app->get('[/[{page_name}]]', function($req, $resp, $args) use($app){
     $renderer->render($resp, $fileName);
 });
 
-$app->group('/login', function () {
-    $this->get('[/index[/]]', 'LoginController:index');
-    $this->post('[/post[/]]', 'LoginController:post');
-});
+
 
 //$app->get('/test[/[index[/]]]', \App\Controllers\Test\IndexController::class.":index");
 
