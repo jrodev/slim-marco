@@ -319,15 +319,19 @@ $(document).ready(function() {
 
                             $("#codigo").removeAttr('title');
 
-                            if (oJson.status==1 && oJson.activo==3) {
+                            if (oJson.status==1 && oJson.activo==2) {
                                 var rowMigrate = oJson.data[0];
                                 $viewMigrar.each(function (i, ele) {
                                     var colName = $(ele).attr('name');
                                     // Cargando Valores
                                     $(ele).val( rowMigrate[colName] );
                                     $(ele).trigger('blur');
+									$(ele).prop('disabled',true);
                                 });
                             } else {
+								$viewMigrar.each(function (i, ele) {
+									$(ele).prop('disabled',false);
+								});
                                 // limpiando valores
                                 $viewMigrar.val('');
                                 $viewMigrar.removeClass('is-valid');
