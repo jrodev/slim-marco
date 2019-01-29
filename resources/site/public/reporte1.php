@@ -1,7 +1,7 @@
 <?php
 setlocale(LC_TIME, "pe_PE");
 date_default_timezone_set('America/Lima');
-$fecha=UCfirst(strftime("%A, %d %B %Y")); 
+$fecha=UCfirst(strftime("%A, %d %B %Y"));
 $insertar = mysqli_connect("localhost","root","123456",'oniees');
 //mysql_select_db('oniees', $insertar);
 $region = $_REQUEST["region"];
@@ -11,7 +11,7 @@ $region = $_REQUEST["region"];
 <html>
 
 <head>
-<link rel="shorcut icon" href="images/oniees.ico">
+<link rel="shorcut icon" href="../images/oniees.ico">
 <script language='JavaScript'>
 function uno(src,metodo,color_salida,color_entrada,color_click)
 {
@@ -31,14 +31,14 @@ body {
 <body>
 <table width="1187" border="0" bordercolor="#FFFFFF">
   <tr>
-    <td width="807" rowspan="2"><img src="images/Logo.png" width="335" height="90"></td>
+    <td width="807" rowspan="2"><img src="../images/Logo.png" width="335" height="90"></td>
     </tr>
   <tr>
   	<td height="37" align="right" ><strong>Fecha:</strong></td>
     <td align="right"><strong><font face=tahoma><b><?php echo $fecha ?></b></font></strong></td>
   </tr>
 </table>
-    
+
 <center>
   <H1>Estado de la Infraestructura</H1>
   <table height="75" border="0" cellpadding="5">
@@ -64,9 +64,9 @@ body {
         <th width="132">Provincia</th>
         <th width="132">Distrito</th>
 	</tr>
-    
-	
-<?php 
+
+
+<?php
 
 $sql_infraes = "SELECT tb_establecimiento.cod_renipres ,nom_estab, nomdepar_estab, ano_estab, camas_estab, codcat_estab, instit_estab, areaconsgeo, areaterrgeo, invtot_estab, direcc_estab, nomprov_estab, nomdist_estab FROM tb_establecimiento inner join tb_geolocaliza where tb_establecimiento.cod_renipres = tb_geolocaliza.cod_renipres and codigo=".$region;
 
@@ -85,12 +85,12 @@ for ($i_red = 0; $i_red < $nf_infraes; $i_red++ ) {
 <?php
 $n=0;
 $total=0;
-//while($fila = mysqli_fetch_array($rs)){ 
+//while($fila = mysqli_fetch_array($rs)){
 
-while($fila = mysqli_fetch_array($rs_red)){ 
+while($fila = mysqli_fetch_array($rs_red)){
 // 	if($n%2==0){
 		?>
- 	
+
     <tr bgcolor="#E5E5E5" onMouseOver="uno(this,'over','#CCFFCC','','');" onMouseOut="uno(this,'out','','#E5E5E5','');" onMouseDown="uno(this,'down','','','#E8BD8E');">
 			<td class="texto_migaja" font face="tahoma"><?php echo $fila["nomdepar_estab"];?></td>
            <td font face="tahoma" align="center"><a href="reporteficha.php?cod="><?php echo $fila["cod_renipres"];?></a></td>
@@ -106,9 +106,9 @@ while($fila = mysqli_fetch_array($rs_red)){
             <td font face="tahoma"><?php echo $fila["direcc_estab"];?></td>
             <td font face="tahoma"><?php echo $fila["nomprov_estab"];?></td>
             <td font face="tahoma"><?php echo $fila["nomdist_estab"];?></td>
-<?php 
+<?php
 $total=$total + 1;
-?>		
+?>
             </td>
 	</tr>
 
@@ -138,10 +138,10 @@ $total=$total + 1;
         <td ></td>
 
 </tr>
-  
+
 </table>
- 
- <?php 
+
+ <?php
  if(isset($_POST["exporta"])){
 	 if(!empty($cod_renipres)){
 		 $filename = "establecimientos.xls";
@@ -156,7 +156,7 @@ $total=$total + 1;
 			 }
 			 echo implode("\t", array_values($cod)). "\n";
 		 }
-		 
+
 	 }else{
 		 echo 'No hay datos a exportar';
 	 }

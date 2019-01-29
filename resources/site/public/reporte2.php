@@ -1,7 +1,7 @@
 <?php
 setlocale(LC_TIME, "pe_PE");
 date_default_timezone_set('America/Lima');
-$fecha=UCfirst(strftime("%A, %d %B %Y")); 
+$fecha=UCfirst(strftime("%A, %d %B %Y"));
 $insertar = mysqli_connect("localhost","root","123456",'oniees');
 //mysqli_select_db('oniees', $insertar);
 ?>
@@ -22,7 +22,7 @@ $data3=mysqli_fetch_assoc($result3);
 
 
 ?>
-<link rel="shorcut icon" href="images/oniees.ico">
+<link rel="shorcut icon" href="../images/oniees.ico">
 <script language='JavaScript'>
 function uno(src,metodo,color_salida,color_entrada,color_click)
 {
@@ -38,27 +38,27 @@ function dos(color_salida1,color_salida2,color_salida3)
 	var tipo2 = document.getElementById('instelect_cons').value;
 	var tipo3 = document.getElementById('instsanit_cons').value;
 	var tipo4 = document.getElementById('estad_cons').value;
-	
+
 	if (tipo=='B')src.bgColor=color_salida1;
 	if (tipo=='R')src.bgColor=color_salida2;
 	else if (tipo=='M')src.bgColor=color_salida3;
-	
+
 	if (tipo1=='B')src.bgColor=color_salida1;
 	if (tipo1=='R')src.bgColor=color_salida2;
 	else if (tipo1=='M')src.bgColor=color_salida3;
-	
+
 	if (tipo2=='B')src.bgColor=color_salida1;
 	if (tipo2=='R')src.bgColor=color_salida2;
 	else if (tipo2=='M')src.bgColor=color_salida3;
-	
+
 	if (tipo3=='B')src.bgColor=color_salida1;
 	if (tipo3=='R')src.bgColor=color_salida2;
 	else if (tipo3=='M')src.bgColor=color_salida3;
-	
+
 	if (tipo4=='B')src.bgColor=color_salida1;
 	if (tipo4=='R')src.bgColor=color_salida2;
 	else if (tipo4=='M')src.bgColor=color_salida3;
-	
+
 }
 
 </script>
@@ -67,18 +67,18 @@ function dos(color_salida1,color_salida2,color_salida3)
 <style type="text/css">
 body {
 	background-color: #FFFFFF;
-}   
+}
 </style></head>
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script src="js/Chart.bundle.js"></script>
-<script src="js/utils.js"></script>
+<script src="../js/Chart.bundle.js"></script>
+<script src="../js/utils.js"></script>
 
 
 <body>
 <table width="1187" border="0" bordercolor="#FFFFFF">
   <tr>
-    <td width="807" rowspan="2"><img src="images/Logo.png" width="335" height="100"></td>
+    <td width="807" rowspan="2"><img src="../images/Logo.png" width="335" height="100"></td>
     </tr>
   <tr>
     <td height="37"><strong>Fecha:</strong></td>
@@ -107,15 +107,15 @@ body {
 			data: {
 				datasets: [{
 					data: [
-					
-				//	while($fila = mysqli_fetch_array($rs_red)){ 
+
+				//	while($fila = mysqli_fetch_array($rs_red)){
 					 //echo $fila["valor"]."," ;
-					
+
 						<?php echo $data1['Bueno'];?>,
 						<?php echo $data2['Regular'];?>,
 						<?php echo $data3['Malo'];?>,
-						
-					<?php 
+
+					<?php
 						//}
 					?>
 					],
@@ -124,7 +124,7 @@ body {
 						window.chartColors.orange,
 						window.chartColors.red,
 						window.chartColors.blue,
-						
+
 					],
 					label: 'Dataset 1'
 				}],
@@ -133,7 +133,7 @@ body {
 					'Regular <?php echo $data2['Regular'];?>',
 					'Malo <?php echo $data3['Malo'];?>',
 					'Otros',
-					
+
 				]
 			},
 			options: {
@@ -190,21 +190,21 @@ body {
 		<th width="173">Instalaciones El&eacute;ctricas</th>
         <th width="173">Instalaciones Sanitarias</th>
         <th width="173">Estado General</th>
-        
+
 	</tr>
-    
-	
+
+
 <!--	<tr bgcolor="#E5E5E5" onMouseOver="uno(this,'over','#CCFFCC','','');" onMouseOut="uno(this,'out','','#E5E5E5','');" onMouseDown="uno(this,'down','','','#E8BD8E');">
 			<td ><h4></h4></td>
 			<td >&nbsp;</td>
 		<td align="center" >&nbsp;</td>
 			<td align="right" >&nbsp;</td>
 	</tr>-->
-			 
+
 
 
 </center>
-<?php 
+<?php
 $sql_infraes = "SELECT tb_establecimiento.cod_renipres ,nom_estab, red_estab, estruct_estab, arquitec_estab, instelect_estab, instsanit_estab, estad_cons FROM tb_establecimiento inner join tb_estadocons where tb_establecimiento.cod_renipres = tb_estadocons.cod_renipres";
 
 
@@ -213,9 +213,9 @@ $nf_infraes = mysqli_num_fields($rs_red);
 for ($i_red = 0; $i_red < $nf_infraes; $i_red++ ) {
 ?>
 <?php
-while($fila = mysqli_fetch_array($rs_red)){ 
+while($fila = mysqli_fetch_array($rs_red)){
 ?>
- 
+
 
 <tr bgcolor="#E5E5E5" onMouseOver="uno(this,'over','#CCFFCC','','');" onMouseOut="uno(this,'out','','#E5E5E5','');" onMouseDown="uno(this,'down','','','#E8BD8E');">
 			<td ><?php echo $fila["red_estab"];?></td>
@@ -225,16 +225,16 @@ while($fila = mysqli_fetch_array($rs_red)){
             <td align="center"><?php echo $fila["instelect_estab"];?></td>
             <td align="center"><?php echo $fila["instsanit_estab"];?></td>
             <td align="center"><?php echo $fila["estad_cons"];?></td>
-            
+
 <?php
 	}
 	}
-	
+
 ?>
-  
+
 </table>
 
-			 
+
 
 
 </center>

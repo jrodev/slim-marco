@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<link rel="shorcut icon" href="images/oniees.ico">
+<link rel="shorcut icon" href="../images/oniees.ico">
 <!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <!-- Minified JS library -->
@@ -11,16 +11,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <meta charset="utf-8">
 <title>ONIEES - Observatorio Nacional de Infraestructura, Equipamiento y Mantenimiento de Establecimientos de Salud - Perú</title>
-   <link rel="stylesheet" href="css/styles.css">
-   <link rel="stylesheet" type="text/css" href="css/estilo.css">
+   <link rel="stylesheet" href="../css/styles.css">
+   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="js/script.js"></script>
+   <script src="../js/script.js"></script>
 </head>
 <body>
 <div id="principal">
 
 <div id="header">
-<a href="./"><img src="images/logo.png" width="250" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/></a>
+<a href="./"><img src="../images/logo.png" width="250" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/></a>
 <?php
 
 include("menu.php"); ?><br>
@@ -44,69 +44,69 @@ include("menu.php"); ?><br>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active" align="center">
-            <img src="images/Hospital_villa_el_salvador.png" alt="">
+            <img src="../images/Hospital_villa_el_salvador.png" alt="">
             <!--<div class="carousel-caption">
                 <h3>First Slide</h3>
                 <p>This is the first image slide</p>
             </div>-->
         </div>
-  
+
         <div class="item" align="center">
-            <img src="images/Hospital_Loayza.jpg" alt="">
+            <img src="../images/Hospital_Loayza.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Second Slide</h3>
                 <p>This is the second image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_Rebagliatti.jpg" alt="">
+            <img src="../images/Hospital_Rebagliatti.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_Naval.jpg" alt="">
+            <img src="../images/Hospital_Naval.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_Ejercito.jpg" alt="">
+            <img src="../images/Hospital_Ejercito.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_FAP.jpg" alt="">
+            <img src="../images/Hospital_FAP.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_PNP.jpg" alt="">
+            <img src="../images/Hospital_PNP.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
         <div class="item" align="center">
-            <img src="images/Hospital_Carlos_Segun.jpg" alt="">
+            <img src="../images/Hospital_Carlos_Segun.jpg" alt="">
             <!--<div class="carousel-caption">
                 <h3>Third Slide</h3>
                 <p>This is the third image slide</p>
             </div>-->
         </div>
-        
+
     </div>
 
     <!-- Controls -->
@@ -119,7 +119,7 @@ include("menu.php"); ?><br>
         <span class="sr-only">Next</span>
     </a>
 </div>-->
-<!-- Custom Controls 
+<!-- Custom Controls
 <a href="javascript:void(0);" id="prevBtn">Prev Slide</a>
 <a href="javascript:void(0);" id="nextBtn">Next Slide</a>
 

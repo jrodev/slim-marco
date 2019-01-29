@@ -5,24 +5,24 @@
 <link rel="shorcut icon" href="images/oniees.ico">
 <meta charset="utf-8">
 <title>ONIEES - Observatorio Nacional de Infraestructura, Equipamiento y Mantenimiento de Establecimientos de Salud - Perú</title>
-   <link rel="stylesheet" href="css/styles.css">
-   <link rel="stylesheet" type="text/css" href="css/estilo.css">
+   <link rel="stylesheet" href="../css/styles.css">
+   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="js/script.js"></script>
+   <script src="../js/script.js"></script>
 </head>
 
 <body>
 <div id="principal">
 
 <div id="header">
-<a href="./"><img src="images/logo.png" width="180" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/></a>
+<a href="./"><img src="../images/logo.png" width="180" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/></a>
 <?php include("menu.php"); ?><br>
 
 </div>
 <div id="contenido">
 <p>&nsub;</p>
-  <h2><strong><img src="images/image_columns-197x300.jpg" width="221" height="335" style="float:left; margin-right:35px"/>Marco legal</strong></h2>
+  <h2><strong><img src="../images/image_columns-197x300.jpg" width="221" height="335" style="float:left; margin-right:35px"/>Marco legal</strong></h2>
   <div class="entry">
 				<p>Decreto Legislativo N° 1155, en su artículo 2° dicta medidas destinadas a mejorar la calidad del servicio y declara de interés público el mantenimiento de la infraestructura y el equipamiento en los establecimientos de salud a nivel nacional.</p>
 <p>Asimismo, el citado Decreto Supremo en su artículo 6° dispone la implementación de El Observatorio Nacional de Infraestructura, Equipamiento de Establecimientos de Salud.</p>
@@ -44,12 +44,12 @@
 </li>
 </ol>
 
-				
+
 			</div>
            <table width="718" height="270" border="0" align="center" cellpadding="10" cellspacing="10">
     <tbody>
       <tr>
-        
+
         <td align="center"><img src="http://localhost/oniees/site/images/susalud.png" alt="" height="50"></td>
         <td align="center" valign="top"><img src="http://localhost/oniees/site/images/essalud.png" alt="" height="50"></td>
       </tr>
@@ -66,10 +66,10 @@
     </tbody>
   </table>
 
-            
+
 		</div>
-  
-  
+
+
 
 
 

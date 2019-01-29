@@ -1,7 +1,7 @@
 <?php
 setlocale(LC_TIME, "pe_PE");
 date_default_timezone_set('America/Lima');
-$fecha=UCfirst(strftime("%A, %d %B %Y")); 
+$fecha=UCfirst(strftime("%A, %d %B %Y"));
 $insertar = mysql_connect("localhost","root","admin812");
 mysql_select_db('oniees', $insertar);
 
@@ -16,7 +16,7 @@ if(isset($_REQUEST["foto1"])){
 
 ?>
 
-<form action="reporte3.php" enctype="multipart/form-data">
+<form action="../reporte3.php" enctype="multipart/form-data">
 
 Foto
 <input type="file" name="foto1"><br />

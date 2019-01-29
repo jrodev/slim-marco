@@ -23,7 +23,6 @@ class EstablecimientoController extends Controller
        $this->ci = $ci;
     }
     */
-
     public function index ($req, $resp, $args)
     {
         $db = $this->db;
@@ -169,7 +168,8 @@ class EstablecimientoController extends Controller
         );
     }
 
-    public function guardar ($req, $resp, $args) {
+    public function guardar ($req, $resp, $args)
+    {
         try {
             // Modelos Involucrados en esta transaccion
             $establecimiento         = new Establecimiento;
@@ -283,11 +283,9 @@ class EstablecimientoController extends Controller
             'data'   => ($activo==2) ? $estabs : []
         );
 
-
         //if ($format == 'json') {
         return $resp->withJson($arrResp);
         //}
-
         //return $this->view->render($resp, 'views/upssups/index.twig', ['uppsUps'=>$uppsUps]);
     }
 
@@ -298,7 +296,8 @@ class EstablecimientoController extends Controller
      * @param array $fieldsExclude columnas de cada row que no deberian insertarse
      * @return array Array listo para ser insertado con Model::insert(array()).
      */
-    private function getRowsForInserted ($arrRows, $fkId=FALSE, $fieldsExclude=FALSE) {
+    private function getRowsForInserted ($arrRows, $fkId=FALSE, $fieldsExclude=FALSE)
+    {
         $arrPersEspc = array();
         foreach ($arrRows as $i => $row) {
             $newRow = array();

@@ -12,11 +12,11 @@ $totalRows_ins = mysqli_num_rows($ins);
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<link rel="shorcut icon" href="images/oniees.ico">
+<link rel="shorcut icon" href="../images/oniees.ico">
 <head>
-<link rel="stylesheet" type="text/css" href="css/estilo2.css">
+<link rel="stylesheet" type="text/css" href="../css/estilo2.css">
 
-<script  language='JavaScript'>
+<script>
 function calcularEstado(){
 	//var modurl = "consultar_ruc.php?myRand="+myRand;
 	var estruct_eess = document.getElementById('estruct_estab').value;
@@ -36,33 +36,29 @@ function calcularEstado(){
 	if ( estruct_estab == "B" & arquitec_estab=="R" & instelect_estab=="R" & instsanit_estab=="R") {
 		document.getElementById('estad_cons').value = "R";
 	}
-	
+
 	if ( estruct_estab == "M" & arquitec_estab=="R" & instelect_estab=="R" & instsanit_estab=="R") {
 		document.getElementById('estad_cons').value = "R";
 	}
-	
+
 	if ( estruct_estab == "B" & arquitec_estab=="B" & instelect_estab=="R" & instsanit_estab=="R") {
 		document.getElementById('estad_cons').value = "B";
 	}
-	
+
 	if ( estruct_estab == "B" & arquitec_estab=="M" & instelect_estab=="R" & instsanit_estab=="R") {
 		document.getElementById('estad_cons').value = "R";
 	}
-	
+
 	if ( estruct_estab == "B" & arquitec_estab=="M" & instelect_estab=="R" & instsanit_estab=="R") {
 		document.getElementById('estad_cons').value = "R";
 	}
-	
-	
 }
+</script>
 
-
-</script
-
-><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documento sin título</title>
 
-<script src="jsImagen.js"></script>
+<script src="../jsImagen.js"></script>
 
 </head>
 
@@ -97,12 +93,12 @@ function calcularEstado(){
   <tr>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">UBICACIÓN</td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    
+
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">RED</td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">INFORMACIÓN GENERAL DEL ESTABLECIMIENTO</td>
   </tr>
-  
+
 
   <tr>
   <td>
@@ -118,12 +114,12 @@ function calcularEstado(){
        </select>
      </label></td>
     </tr>
-    
+
   	<tr>
             <td>Departamento</td>
             <td><input type=text name="nomdepar_estab" maxlength="20"/></td>
     </tr>
-    
+
     <tr>
     	<td>Provincia</td>
     	<td><input type=text name="nomprov_estab" maxlength="20" /></td>
@@ -134,10 +130,10 @@ function calcularEstado(){
     	<td><input type=text name="nomdist_estab" maxlength="20"  /></td>
     </tr>
 
-    
+
     </table></td>
     <td></td>
-    
+
     <td>
     <table width="374" border=0>
         <tr>
@@ -194,16 +190,16 @@ function calcularEstado(){
     	<td>Inversión en Equipamiento</td>
     	<td><input name="invequip_estab" type="text" /></td>
     </tr>
-    
+
     </table></td>
-     
-  
+
+
  <table width="200" border="1">
 </br>
   <tr>
     <td colspan="10" bgcolor="#0033CC" style="color:rgba(255,255,255)">FOTO PANORÁMICA DEL ESTABLECIMIENTO DE SALUD Y CROQUIS DE UBICACIÓN</td>
   </tr>
-  
+
 
   <tr>
   <td>
@@ -213,7 +209,7 @@ function calcularEstado(){
    <br />
    <img id="imgSalida" width="50%" height="50%" src="" />
    </td>
-            
+
     </tr>
     </table></td>
     <td></td>
@@ -236,7 +232,7 @@ function calcularEstado(){
   </tr>
 
 
-  
+
 </table>
 
 <table width="200" border="0">
@@ -244,7 +240,7 @@ function calcularEstado(){
   <tr>
     <td colspan="10" bgcolor="#0033CC" style="color:rgba(255,255,255)">GEOLOCALIZACIÓN</td>
   </tr>
-  
+
   <tr>
   <td>
     <table width="650" border=0>
@@ -258,7 +254,7 @@ function calcularEstado(){
         </select>
      </label></td>
     </tr>
-    
+
   	<tr>
             <td>El terreno cuenta con saneamiento físico legal</td>
             <td><label>
@@ -269,7 +265,7 @@ function calcularEstado(){
         </select>
      </label></td>
     </tr>
-    
+
     <tr>
     	<td>Área del terreno (m2)</td>
     	<td><input name="" type="areaterrgeo" /></td>
@@ -284,28 +280,28 @@ function calcularEstado(){
     	<td>Área libre (m2)</td>
     	<td><input name="arealibgeo" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Superficie del terreno es:</td>
         <td>Plana &nbsp;&nbsp;<input name="superfterrenogeo" type="radio"/> </td>
         <td width="132">Inclinada &nbsp;&nbsp;<input name="superfterrenogeo" type="radio"/></td>
     </tr>
-    
+
     <tr>
     	<td>Número de pisos del establecimiento</td>
     	<td><input name="numpisgeo" type="text" /></td>
     </tr>
-    
+
     </table></td>
     <td></td>
-    
+
     <td>
     <table width="200" border=0>
-   		
+
     </table></td>
     <td></td>
     <td>
-    
+
     <table width="630" border=0>
         <tr>
             <td>Latitud (Grados Sexagesimales)</td>
@@ -329,38 +325,38 @@ function calcularEstado(){
     	<td>Población actual del Distrito (en cientos)</td>
     	<td><input name="pobactdisgeo" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Área del Distrito (Km2)</td>
     	<td><input name="areadistgeo" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Densidad poblacional (Hab/Km2)</td>
     	<td><input name="densopoblacgeo" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Accesibilidad</td>
     	<td><input name="accessgeo" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Tipo de camino</td>
     	<td><input name="tipo_cam" type="text" /></td>
     </tr>
-    
+
     </table></td>
 
  <table width="600" border="0">
-  </br>	
+  </br>
   <tr>
     <td colspan="2" bgcolor="#0033CC" style="color:rgba(255,255,255)">PERSONAL DE ESTABLECIMIENTO DE SALUD</td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td colspan="8" bgcolor="#0033CC" style="color:rgba(255,255,255)">DISTANCIA Y TIEMPOS DE ACCESO</td>
-    
+
   </tr>
-  
+
 
   <tr>
   <td>
@@ -369,12 +365,12 @@ function calcularEstado(){
             <td align="center">Especialidades</td>
             <td align="center">Cantidad</td>
     </tr>
-    
+
   	<tr>
             <td ><a href="esoecialidades.php" target="_blank" onclick="window.popup(this.href,this.target); return false">A&ntilde;adir Elemento</a></td>
             <td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
@@ -392,7 +388,7 @@ function calcularEstado(){
     </table></td>
     <td></td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    
+
     <td>
     <table width="950" border=0>
         <tr>
@@ -419,29 +415,29 @@ function calcularEstado(){
         <td><input name="hosp_tiempo" type="text" /></td>
         <td><input name="hosp_cat" type="text" /></td>
 	    </tr>
-        
+
         <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
     <tr></tr>
-       
+
     </table></td>
     <td></td>
     <td>
-    
-    
+
+
     </table></td>
- 
+
 <table width="500" border="0">
-  </br>	
+  </br>
   <tr>
     <td colspan="2" bgcolor="#0033CC" style="color:rgba(255,255,255)">UPSS</td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td colspan="8" bgcolor="#0033CC" style="color:rgba(255,255,255)">UPS</td>
-    
+
   </tr>
-  
+
 
   <tr>
   <td>
@@ -450,12 +446,12 @@ function calcularEstado(){
             <td width="421" align="center">UPSS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
             <td width="183" align="center"> TOTAL DE AMBIENTES</td>
     </tr>
-    
+
   	<tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
@@ -473,7 +469,7 @@ function calcularEstado(){
     </table></td>
     <td></td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    
+
     <td>
     <table width="680" border=1>
         <tr>
@@ -488,22 +484,22 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
 	    </tr>
-        
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-       
+
     </table></td>
     <td></td>
     <td>
-    </tr> 	 
- 
+    </tr>
+
  <table width="50" border="0">
  </br>
   <tr>
@@ -517,7 +513,7 @@ function calcularEstado(){
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">FUENTE DE ENERGÍA ELÉCTRICA</td>
   </tr>
-  
+
 
   <tr>
   <td>
@@ -526,12 +522,12 @@ function calcularEstado(){
             <td width="241">Losa de concreto</td>
             <td width="49"><input name="losa_concreto" type="checkbox" /></td>
     </tr>
-    
+
   	<tr>
             <td>Losa aligerada</td>
             <td><input name="losa_alige" type="checkbox" /></td>
     </tr>
-    
+
     <tr>
     	<td>Estructura de madera</td>
     	<td><input name="estruct_madera" type="checkbox" /></td>
@@ -546,14 +542,14 @@ function calcularEstado(){
     	<td>Ladrillo</td>
     	<td><input name="ladrillo" type="checkbox" /></td>
     </tr>
-    
+
     <tr>
     	<td>Otro</td>
     	<td><input name="otro_estruct" type="checkbox" /></td>
     </tr>
     </table></td>
     <td></td>
-    
+
     <td>
     <table width="250" border=0>
         <tr>
@@ -578,17 +574,17 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     </table></td>
     <td></td>
     <td>
@@ -616,32 +612,32 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
     </table></td>
     <td></td>
-	
+
     <td>
-    
+
 	<table width="250" border=0>
         <tr>
             <td width="240">Cemento</td>
             <td width="50"><input name="cemento" type="checkbox" /></td>
         </tr>
-   		
+
         <tr>
             <td>Vinílico</td>
             <td><input name="vinilico" type="checkbox" /></td>
         </tr>
-        
+
         <tr>
     	<td>Cerámico</td>
     	<td><input name="ceramico" type="checkbox" /></td>
@@ -656,17 +652,17 @@ function calcularEstado(){
     	<td>Descripci&oacute;n</td>
     	<td><input name="descotro_piso" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     </table></td>
     <td></td>
 
@@ -694,20 +690,20 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
      </table></td>
     <td></td>
-    
-    	 
+
+
 <table width="350" border="0">
  </br>
   <tr>
@@ -719,7 +715,7 @@ function calcularEstado(){
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td colspan="4" bgcolor="#0033CC" style="color:rgba(255,255,255)">VULNERABILIDAD</td>
   </tr>
-  
+
   <tr>
   <td>
     <table width="350" border=0>
@@ -727,12 +723,12 @@ function calcularEstado(){
             <td>Potencia instalada (Kw)</td>
             <td><input name="potenciainst" type="text" /></td>
     </tr>
-    
+
   	<tr>
             <td>Máxima demanda (Kw)</td>
             <td><input name="maxdemanda" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Potencia contratada (Kw)</td>
     	<td><input name="potenciacont" type="text" /></td>
@@ -747,20 +743,20 @@ function calcularEstado(){
     	<td>Costo Kw/h</td>
     	<td><input name="costokw" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Cantidad de pozos puesta a tierra</td>
     	<td><input name="cant_pozos" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Costo Kvar/h</td>
     	<td><input name="costokvar" type="text" /></td>
     </tr>
-    
+
     </table></td>
     <td></td>
-    
+
     <td>
     <table width="250" border=0>
         <tr>
@@ -785,22 +781,22 @@ function calcularEstado(){
     	<td>Otro</td>
     	<td><input name="otro_fuenteagua" type="checkbox" /></td>
     </tr>
-    
+
     <tr>
     	<td>Descripci&oacute;n</td>
     	<td><input name="descotro_agua" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     </table></td>
     <td></td>
     <td>
@@ -828,7 +824,7 @@ function calcularEstado(){
     	<td>Otro</td>
     	<td><input name="otrodesag" type="checkbox" /></td>
     </tr>
-    
+
     <tr>
     	<td>Cuenta con drenaje de aguas pluviales</td>
     	<td><label>
@@ -839,29 +835,29 @@ function calcularEstado(){
         </select>
      </label></td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
     </table></td>
     <td></td>
-	
+
     <td>
-    
+
 	<table width="250" border=0>
         <tr>
             <td>Cerca a:</td>
             <td>Cause de río </td>
             <td><input name="caucerio" type="checkbox" /></td>
         </tr>
-        
+
          <tr>
     	<td>&nbsp;</td>
     	<td>Huayco</td>
         <td><input name="huayco" type="checkbox" /></td>
     </tr>
-        
+
    		<tr>
             <td>Calificación ISH</td>
             <td><label>
@@ -898,17 +894,17 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     </table></td>
     <td></td>
 
@@ -938,20 +934,20 @@ function calcularEstado(){
     	<td>Año</td>
     	<td><input name="anoestu" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
+
     </table></td>
     <td></td>
-    
+
 <table width="500" border="0">
 </br>
   <tr>
@@ -961,18 +957,18 @@ function calcularEstado(){
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">ESTADO DE CONSERVACIÓN</td>
   </tr>
-  
+
 
   <tr>
   <td>
     <table width="600" border=0>
 
-    
+
   	<tr>
             <td>Biocontaminados (Kg)</td>
             <td><input name="biocontam" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Comunes (Kg)</td>
     	<td><input name="comunes" type="text" /></td>
@@ -993,30 +989,30 @@ function calcularEstado(){
         </select>
      </label></td>
     </tr>
-    
+
     <tr>
     	<td>Operatividad</td>
     	<td><input name="operatividad" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Costo unitario de traslado de los residuos (S/Kg)</td>
     	<td><input name="costounittrasl" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Costo mensual de traslado de los residuos al relleno sanitario</td>
     	<td><input name="costomenstrasl" type="text" /></td>
     </tr>
-    
+
     <tr>
     	<td>Ubicación del relleno sanitario</td>
     	<td><input name="ubicacionrell" type="text" /></td>
     </tr>
-    
+
     </table></td>
     <td></td>
-    
+
     <td>
     <table width="250" border=0>
         <tr>
@@ -1028,7 +1024,7 @@ function calcularEstado(){
          <option value="3">No</option>
         </select>
      </label></td>
-     
+
      <td><label>
        <select name="telfoper">
          <option value="1">&nbsp;</option>
@@ -1038,7 +1034,7 @@ function calcularEstado(){
          <option value="5">Bitel</option>
        </select>
      </label></td>
-     
+
         </tr>
    		<tr>
             <td>Internet</td>
@@ -1049,7 +1045,7 @@ function calcularEstado(){
          <option value="3">No</option>
         </select>
      </label></td>
-     
+
      <td><label>
        <select name="interoper">
          <option value="1">&nbsp;</option>
@@ -1079,7 +1075,7 @@ function calcularEstado(){
          <option value="3">No</option>
         </select>
      </label></td>
-     
+
      <td><label>
        <select name="cablaoper">
          <option value="1">&nbsp;</option>
@@ -1099,9 +1095,9 @@ function calcularEstado(){
     </table></td>
     <td></td>
     <td>
-    
+
     <table width="450" border=0>
-    
+
         <tr>
             <td>Arquitectura</td>
             <td><label>
@@ -1113,7 +1109,7 @@ function calcularEstado(){
         </select>
      </label></td>
         </tr>
-        
+
    		<tr>
             <td>Estructura</td>
             <td><label>
@@ -1125,7 +1121,7 @@ function calcularEstado(){
         </select>
      </label></td>
         </tr>
-        
+
         <tr>
     	<td>Instalaciones Eléctricas</td>
     	<td><label>
@@ -1154,9 +1150,9 @@ function calcularEstado(){
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-    
-    
-    
+
+
+
     </table></td>
 <table width="650" border=0>
 <tr>
@@ -1172,6 +1168,3 @@ function calcularEstado(){
 
 
 </html>
-
-
-

@@ -49,8 +49,25 @@ $app->group('/upssups', function () {
     $this->get('[/[cat/{idcat}[/]]]', 'UpssupsController:index')->setName('listar-upssups'); // Listar
 });
 
-$app->get('/test[/[index[/]]]', \App\Controllers\Test\IndexController::class.":index");
+$app->group('/login', function () {
+    $this->get('[/index[/]]', 'LoginController:index');
+    $this->post('[/post[/]]', 'LoginController:post');
+});
 
-$app->get('[/[home[/index[/]]]]', 'HomeController:index');
+// Ruteando site antiguo
+$app->get('[/[{page_name}]]', function($req, $resp, $args) use($app){
+    $container = $app->getContainer();
+    $renderer = new Slim\Views\PhpRenderer(__DIR__."/../../resources/site/public/");
+    //$phpFile = __DIR__."/../../resource/site/public/about.php";
+    $fileName = "/index.php";
+    if (key_exists('page_name', $args)) {
+        $fileName = "/{$args["page_name"]}.php";
+    }
+    $renderer->render($resp, $fileName);
+});
 
-$app->get('/menu[/index[/]]', 'MenuController:index');
+
+
+//$app->get('/test[/[index[/]]]', \App\Controllers\Test\IndexController::class.":index");
+
+//$app->get('[/[home[/index[/]]]]', 'HomeController:index');

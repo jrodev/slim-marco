@@ -7,21 +7,105 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
         <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /-->
         <!--link href="{{ baseUrl() }}css/layout.css" type="text/css" rel="stylesheet" /-->
+
+        <!-- Para el menu principal y para el Footer -->
+        <link href="{{ baseUrl() }}css/styles.css" type="text/css" rel="stylesheet" />
+        <link href="{{ baseUrl() }}css/estilo.css" type="text/css" rel="stylesheet" />
+        <!-- -->
+
         <link href="{{ baseUrl() }}css/main.css" type="text/css" rel="stylesheet" />
-        <script>
-            window.App = {
-                baseUrl : "{{ baseUrl() }}"
-            };
-        </script>
+        <script> window.App = { baseUrl : "{{ baseUrl() }}" }; </script>
         {% block style %}{% endblock %}
     </head>
     <body>
-
         <!--p style="text-align:center">Resize the browser window to see the effect.</p-->
-        <h3 class="text-center"></h3>
+        <!--h3 class="text-center">Admin - Layout</h3-->
 
         <div class="my-container container">
-        {% block content %}{% endblock %}
+            <div class="row">
+                <div class="col-3">
+                    <a href="./"><img src="{{ baseUrl() }}images/logo.png" style="width:100%" /></a>
+                </div>
+                <div class="col-9">
+                    <div class="row float-right">
+                        <a href="http://www.dgiem.gob.pe" target="_blank">
+                            <img src="{{ baseUrl() }}images/logo_dgos.png" width="300" align="right" />
+                        </a>
+                    </div>
+                    <div class="row float-right">
+                        <div id='cssmenu'>
+                            <ul>
+                                <li><a href='./'>Inicio</a></li>
+                                <li class='has-sub'>
+                                   <a href='#'>ONIEES</a>
+                                   <ul>
+                                         <li><a href='quienesomos'>¿Que es el ONIEES?</a></li>
+                                         <li><a href='marcolegal'>Marco Legal</a></li>
+                                         <li><a href="funciones">Funciones</a></li>
+                                         <li><a href='directorio'>Directorio</a></li>
+                                         <li><a href='instituciones'>Comision Multisectorial</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class='active has-sub'>
+                                    <a href='#'>REPORTES</a>
+                                    <ul>
+                                        <li><a href='image'>Reporte de Establecimientos</a></li>
+                                        <li><a href='image2'>Reporte del Estado de Infraestructura</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class='active has-sub'>
+                                    <a href='#'>FICHAS</a>
+                                    <ul>
+                                        <li><a href='frmIngresoFicha'>Infraestructura</a></li>
+                                        <li><a href='frmIngresoplanes'>Planes de Equipamiento</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class='active has-sub'>
+                                    <a href='#'>EQUIPAMIENTO</a>
+                                    <ul>
+                                        <li><a href='image'>Reporte de Establecimientos</a></li>
+                                        <li><a href='image2'>Reporte del Estado de Infraestructura</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='#'>Contactenos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            
+            {% block content %}{% endblock %}
+
+            <div class="row">
+                <div id="footer" style="width:100%">
+                    <div id="columna_footer">
+                        <center>
+                          <p><br><br><img src="{{ baseUrl() }}images/logoperu.png" width="150" height="55" alt=""/></p>
+                          <p><br><br><img src="{{ baseUrl() }}images/80años.fw.png" width="127" height="67" alt=""/><br></p>
+                        </center>
+                    </div>
+                    <div id="banner_footer" style="width:100%">
+                        <img src="{{ baseUrl() }}images/susalud.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/essalud.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/angr.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/sanidad_policia.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/sanidad_aerea.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/sanidad_marina.png" alt=""/>
+                        <img src="{{ baseUrl() }}images/sanidad_ejercito.png" alt=""/>
+                    </div>
+                    <center>
+                        <img src="{{ baseUrl() }}images/minsa.fw.png" width="261" height="57" alt=""/><br><br>
+                        Todos los derechos reservados &copy; Copyright 2015 -
+                        <a href="mailto:ONIEES@minsa.gob.pe" target="_blank">ONIEES@minsa.gob.pe</a><br>
+                        Dirección General de Infraestructura, Equipamiento y Mantenimiento – DGIEM <br>
+                        Ministerio de Salud - República del Perú
+                    </center>
+                </div>
+            </div>
         </div>
 
         <!-- Modal Confirm -->

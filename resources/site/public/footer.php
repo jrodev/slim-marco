@@ -35,18 +35,18 @@
 <center>
   <p><br>
 	<br>
-    <img src="images/logoperu.png" width="150" height="55" alt=""/></p>
+    <img src="../images/logoperu.png" width="150" height="55" alt=""/></p>
   <p><br>
 		<br>
-        <img src="images/80años.fw.png" width="127" height="67" alt=""/><br>
+        <img src="../images/80años.fw.png" width="127" height="67" alt=""/><br>
   </p>
 </center>
 </div>
 
-<div id="banner_footer"><img src="images/susalud.png" alt=""/> <img src="images/essalud.png" alt=""/><img src="images/angr.png" alt=""/><img src="images/sanidad_policia.png" alt=""/><img src="images/sanidad_aerea.png" alt=""/><img src="images/sanidad_marina.png" alt=""/><img src="images/sanidad_ejercito.png" alt=""/></div>
+<div id="banner_footer"><img src="../images/susalud.png" alt=""/> <img src="../images/essalud.png" alt=""/><img src="../images/angr.png" alt=""/><img src="../images/sanidad_policia.png" alt=""/><img src="../images/sanidad_aerea.png" alt=""/><img src="../images/sanidad_marina.png" alt=""/><img src="../images/sanidad_ejercito.png" alt=""/></div>
 <center>
-  
-<img src="images/minsa.fw.png" width="261" height="57" alt=""/><br>
+
+<img src="../images/minsa.fw.png" width="261" height="57" alt=""/><br>
 <br>
  Todos los derechos reservados &copy; Copyright 2015 - <a href="mailto:ONIEES@minsa.gob.pe" target="_blank">ONIEES@minsa.gob.pe</a><br>
   Dirección General de Infraestructura, Equipamiento y Mantenimiento – DGIEM <br>

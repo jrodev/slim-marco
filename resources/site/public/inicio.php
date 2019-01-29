@@ -4,36 +4,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >
 <meta runat="server" id="viewporttag" name="viewport" content="width=device-width, initial-scale=1.0" />
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
- 
- 
- 
- 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
               <title> ONIEES &#8211; Observatorio Nacional de Infraestructura y Equipamiento de Establecimientos de Salud &#8211; Perú</title>
-              
+
               <meta name="description" content=" ONIEES &#8211; Observatorio Nacional de Infraestructura y Equipamiento de Establecimientos de Salud &#8211; Perú" />
               <meta name="author" content="MINSA">
-              <meta name="copyright" content="MINSA">  
+              <meta name="copyright" content="MINSA">
               <meta name="distribution" content="global"/>
               <meta name="robots" content="ndex,follow" />
               <meta name="google-site-verification" content="MINSA" />
-              
-              
+
+
               <link rel=icon href=https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/favicon/icon.png sizes="16x16" type="image/png">
-             
+
               <!--[if IE]><link rel="shortcut icon" href="images/favicon/icono_logo.ico"><![endif]-->
-              <link rel="apple-touch-icon-precomposed" 
+              <link rel="apple-touch-icon-precomposed"
 					href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/favicon/icono_logo180x180.png">
 
 
- 
+
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/menu.css" rel="stylesheet" type="text/css">
    <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/style.css" rel="stylesheet" type="text/css">
-  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/formulario.css" rel="stylesheet" >  
-  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/simpletabs.css" rel="stylesheet" >  
+  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/formulario.css" rel="stylesheet" >
+  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/simpletabs.css" rel="stylesheet" >
   <script src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/js/responsiveslides.min.js"></script>
-  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/responsiveslides.css" rel="stylesheet" > 
+  <link href="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/css/responsiveslides.css" rel="stylesheet" >
   <script src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/js/simpletabs_1.3.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -46,31 +46,31 @@
   gtag('config', 'UA-124212001-1');
 </script>
 
-  
+
 </head>
 
 
 	<body>
-<div class="contenedor"> 
- 
+<div class="contenedor">
+
 
 
               <header>
-              
+
               <nav id="cabecera">
-              
+
               <div class="logo_1">
               <img src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/logo.png" height="140" alt=""/> </div>
-              
+
               <a href='http://www.minsa.gob.pe/' target="_top" title="Ir al Portal MINSA"><div class="logo_2">    </div></a>
-              
-              
+
+
               </nav>
               <div>
               <nav id='cssmenu' >
               <div id="head-mobile"></div>
               <div class="button"></div>
-             
+
 				  <div id="cssmenu" class="menu-principal-container"><ul id="menu-principal" class="menu"><li id="menu-item-63" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home active"><a href="https://oniees.dgiem.gob.pe"><span>Inicio</span></a></li>
 <li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub"><a href="#"><span>ONIEES</span></a>
 <ul>
@@ -137,36 +137,36 @@
 </li>
 <li id="menu-item-169" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://oniees.dgiem.gob.pe/?page_id=8"><span>Glosario</span></a></li>
 <li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://oniees.dgiem.gob.pe/?page_id=10"><span>Contactos</span></a></li>
-</ul></div>				
+</ul></div>
               </nav>
               </div>
-              </header>  
-	
+              </header>
+
 
 <div style="display:<%=cab%>;">
 
             <section>
             <nav id='cont'>
-				
+
             <div id="wrapper">
-             
-				
+
+
                 <ul class="rslides rslides1">
-                <!-- <li><img src="/images/1.jpg" alt=""></li> 
+                <!-- <li><img src="/images/1.jpg" alt=""></li>
                   <li><img //src="/images/2.jpg" alt=""></li>-->
                   <li><img src="https://oniees.dgiem.gob.pe/wp-content/uploads/2018/08/1.jpg" alt=""></li>
-                </ul> 	
-				             
+                </ul>
+
             </div>
-            
+
             </nav>
-            
+
             </section>
 </div>
 
 <div class="cabecera2" style="display:none" >
-      <nav> 
-      <img src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/cab_3.jpg" class="cab_img" /> 
+      <nav>
+      <img src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/cab_3.jpg" class="cab_img" />
       </nav>
 </div>
 
@@ -176,7 +176,7 @@
 
 	<div id="div_7">
 	  <div id="div_10">
-        <div class="_cont pad_r pad_t">  
+        <div class="_cont pad_r pad_t">
             <div class="bor_t"> </div>
             <p>&nbsp;</p>
             <p>Últimas noticias y más</p>
@@ -188,17 +188,17 @@
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </div>
-            </div> 
-  
+            </div>
+
 	</div>
-	
+
 	<div id="div_3">
-              <!--  Lista menu  -->  
-              <div class="pad_l bor_l">	          
-				
+              <!--  Lista menu  -->
+              <div class="pad_l bor_l">
+
 				  	<div id="sidebar" role="complementary">
 		<ul>
-			<h4>Enlaces importantes</h4>			
+			<h4>Enlaces importantes</h4>
 			<div class="textwidget"><a href="http://www.dgiem.gob.pe/especificaciones-tecnicas" target="_blank"><img src="https://oniees.dgiem.gob.pe/wp-content/uploads/2016/01/especificaciones.png" width="260"></a>
 <br><br>
 <a href="http://www.dgiem.gob.pe/area/documentos-normativos/" target="_blank">
@@ -206,24 +206,24 @@
 <br><br></div>
 				</ul>
 	</div>
-				  
+
               <div class="call">
               <p class="a1">Consultas: ONIEES &nbsp;&nbsp;</p>
-              <p class="a2">(01) 6120560 <br>Anexo 5134</p> 
-              </div>   
-				  
+              <p class="a2">(01) 6120560 <br>Anexo 5134</p>
+              </div>
+
               <h4>Ubicación</h4>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.7325501321625!2d-77.04479228514805!3d-12.061913745466683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c2f1e683ed%3A0xdb3d054a067cb578!2sDirecci%C3%B3n+General+de+Infraestructura%2C+Equipamiento+y+Mantenimiento+-+MINSA+PER%C3%9A!5e0!3m2!1ses!2spe!4v1510699334375" width="600" height="450" frameborder="0" style="border:0; width:100%; height:80%;" allowfullscreen></iframe>
               <p>Av. Brasil N° 249 <br /><strong>Cercado de Lima - Perú </strong>
               </p>
-              
+
               </div>
-       
-           
 
-	</div>  
 
-</nav> 
+
+	</div>
+
+</nav>
 </div>
 
 
@@ -243,35 +243,35 @@
 <li><a href="http://www.susalud.gob.pe" target="_blank"><img src="http://oniees.dgiem.gob.pe/wp-content/uploads/2015/12/susalud.png"  alt="SUSALUD"  /></a></li>
 </div>
 	</center>
-	
+
 <!-- If you'd like to support WordPress, having the "powered by" link somewhere on your blog is the best way; it's our only promotion or advertising. -->
   <section>
     <div id='pie'>
-                <nav id='pie_txt'> 
+                <nav id='pie_txt'>
                 <p>Ministerio de Salud &copy; Derechos Reservados 2018<br>
                   Dirección  de Infraestructura, Equipamiento y Mantenimiento – DIEM <br>
                 Av. Brasil N° 249 - Cercado de Lima / Perú<br>
                 Atención en Mesa de Partes: Lunes a Viernes de 8:30 a.m. a 4:30 p.m.<br>
                 Central Telefónica : (01) 6120560 Anexos: 5106 - 5118 / Fax : 6120585 - email: <a href="mailto:oniees@minsa.gob.pe">
-                <img src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/email.png" border="0" width="20" height="15"  ></a><br /> 
+                <img src="https://oniees.dgiem.gob.pe/wp-content/themes/onieesv2/images/email.png" border="0" width="20" height="15"  ></a><br />
                 </p>
                 <div class="c_contador">N° de Visitas: 000010015</div>
       </nav>
-                
+
     </div>
 </section>
 
- 
-<script src='js/menu.js'></script>
- 
+
+<script src='../js/menu.js'></script>
+
 <script>
 function EnviaDatos(dato)
 {
 document.tuformulario.campooculto.value=dato;
-document.tuformulario.submit(); 
+document.tuformulario.submit();
 }
 </script>
- 
+
 </div>
 
 	<script type="text/javascript">
@@ -295,7 +295,7 @@ document.tuformulario.submit();
 
 </html>
 
-	
+
 </div>
 </div>
 

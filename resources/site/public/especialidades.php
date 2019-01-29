@@ -1,7 +1,7 @@
 <?PHP
 setlocale(LC_TIME, "pe_PE");
 date_default_timezone_set('America/Lima');
-$fecha=UCfirst(strftime("%A, %d %B %Y")); 
+$fecha=UCfirst(strftime("%A, %d %B %Y"));
 $insertar = mysql_connect("localhost","root","admin812");
 mysql_select_db('oniees', $insertar);
 $region = $_REQUEST["region"];
@@ -13,7 +13,7 @@ $region = $_REQUEST["region"];
 <html>
 
 <head>
-<link rel="shorcut icon" href="images/oniees.ico">
+<link rel="shorcut icon" href="../images/oniees.ico">
 <script language='JavaScript'>
 function uno(src,metodo,color_salida,color_entrada,color_click)
 {
@@ -65,15 +65,15 @@ function uno(src,metodo,color_salida,color_entrada,color_click)
           </td>
           <td colspan="1" align="right"><input type=text name="direcc_estab"  maxlenght="5"/></td>
         <tr>
-        	<td font face="tahoma"><a href="reporte3.php?cod=">Agregar otro profesional</a></td>
+        	<td font face="tahoma"><a href="../reporte3.php?cod=">Agregar otro profesional</a></td>
         </tr>
         <tr>&nbsp;</tr>
         <tr>&nbsp;</tr>
         <tr>&nbsp;</tr>
-        
+
 	</tr>
-    
-	
+
+
 </body>
 
 </html>

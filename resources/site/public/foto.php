@@ -1,5 +1,5 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.uploadPreview.min.js"></script>
+<script type="text/javascript" src="../js/jquery.uploadPreview.min.js"></script>
 
 <div id="image-preview">
   <label for="image-upload" id="image-label">Seleccione imagen</label>
@@ -69,4 +69,3 @@ $(document).ready(function() {
   <label for="image-upload" id="image-label">Seleccione Imagen</label>
   <input type="file" name="image" id="image-upload" />
 </div>
-
