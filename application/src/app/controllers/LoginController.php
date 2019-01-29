@@ -17,14 +17,20 @@ class LoginController extends Controller
     }
 
     public function post ($request, $response, $args) {
+
         $input = $request->getParsedBody();
-        if($input['usuario'] == "admin" && $input['clave'] == "123456") {
+        $arrResp = array();
+
+        if($input['login'] == "admin" && $input['password'] == "123456") {
             session_start();
             $_SESSION["islogin"] = 1;
-            return $this->response->withJson(array("status"=>1,"msg"=>"Acceso Autorizado!"));
+            $arrResp = array("session"=>true,"msg"=>"Acceso Autorizado!");
         } else {
-            return $this->response->withJson(array("status"=>1,"msg"=>"acceso negado"));
+            $arrResp = array("session"=>false,"msg"=>"acceso denegado!!!");
         }
+
+        //return $this->response->withJson($arrResp);
+        return $this->render($resp, 'login/index.twig', ['arrResp'=>$arrResp]);
     }
 
 }

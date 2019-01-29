@@ -111,7 +111,7 @@
           transform: scale(0.95);
         }
 
-        input[type=text] {
+        input[type=text], input[type=password] {
           background-color: #f6f6f6;
           border: none;
           color: #0d0d0d;
@@ -204,6 +204,8 @@
           animation-delay: 0.4s;
         }
 
+        .fadeIn.first img{ margin: 30px auto 10px 10px; }
+
         .fadeIn.second {
           -webkit-animation-delay: 0.6s;
           -moz-animation-delay: 0.6s;
@@ -254,24 +256,32 @@
     </head>
     <body>
         <div class="wrapper fadeInDown">
+
+            {% if arrResp is defined and not arrResp.session %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> {{arrResp.msg}}
+            </div>
+            <hr />
+            {% endif %}
+
             <div id="formContent">
                 <!-- Tabs Titles -->
-
                 <!-- Icon -->
                 <div class="fadeIn first">
                     <img src="{{ baseUrl() }}images/logo.png" id="icon" />
                 </div>
 
                 <!-- Login Form -->
-                <form>
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-                    <input type="submit" class="fadeIn fourth" value="Log In">
+                <form method="post" action="">
+                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" />
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="Clave" />
+                    <input type="submit" class="fadeIn fourth" value="Iniciar sesion" />
                 </form>
 
                 <!-- Remind Passowrd -->
                 <div id="formFooter">
-                    <a class="underlineHover" href="#">Forgot Password?</a>
+                    -
+                    <!--a class="underlineHover" href="#">Recordar clave?</a-->
                 </div>
 
             </div>
