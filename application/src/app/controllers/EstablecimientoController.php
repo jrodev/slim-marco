@@ -27,6 +27,8 @@ class EstablecimientoController extends Controller
     {
         $db = $this->db;
         $db = $db::connection(DB_SETTINGS_NAME);
+        $idRegion = 1; //$req->getQueryParams('region',1);
+        var_dump($idRegion);
         // Tablas
         $e    = 'establecimiento';
         $dist = 'distrito';
@@ -56,7 +58,7 @@ class EstablecimientoController extends Controller
                         $db->raw("($e.gral_inversionequip + $e.gral_inversionInfra) 'Inversión Total'"),
                         $db->raw("$e.geo_areaterreno 'Área de Terreno'"),
                         $db->raw("$e.geo_areaconstruida 'Área Construida'")
-                    )->where("$e.activo",'=', 1);//->toSql()
+                    )->where("$e.activo",'=', 1)->where("$dep.id",'=', $idRegion);//->toSql()
         ;
         //!d($query->toSql()); exit;
         // Agrupando para adecuadamente para usar en el foreach de la plantilla
@@ -93,7 +95,13 @@ class EstablecimientoController extends Controller
     }
 
     public function nuevo ($req, $resp, $args)
-    {
+    {   /*
+        session_start();
+        var_dump($_SESSION);
+        if( !(key_exists("islogin", $_SESSION) && $_SESSION["islogin"]==1) ){
+            return $resp->withRedirect('/login/index', 200);
+        }*/
+
         var_dump($args);
         $db = $this->db;
         $db = $db::connection(DB_SETTINGS_NAME); //  'db_casa_local_oniees'

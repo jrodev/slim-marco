@@ -24,7 +24,7 @@
             <a href='#'>REPORTES</a>
             <ul>
                 <li><a href='image'>Reporte de Establecimientos</a></li>
-                <li><a href='image2'>Reporte del Estado de Infraestructura</a></li>
+                <li><a href='establecimientos#tabEstado'>Reporte del Estado de Infraestructura</a></li>
             </ul>
         </li>
 

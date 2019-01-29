@@ -55,7 +55,7 @@ $app->group('/login', function () {
 });
 
 // Ruteando site antiguo
-$app->get('[/[{page_name}]]', function($req, $resp, $args) use($app){
+$app->get('[/[{page_name}]]', function($req, $resp, $args) use ($app) {
     $container = $app->getContainer();
     $renderer = new Slim\Views\PhpRenderer(__DIR__."/../../resources/site/public/");
     //$phpFile = __DIR__."/../../resource/site/public/about.php";

@@ -16,17 +16,18 @@ class LoginController extends Controller
         return $this->render($resp, 'login/index.twig');
     }
 
-    public function post ($request, $response, $args) {
+    public function post ($req, $resp, $args) {
 
-        $input = $request->getParsedBody();
+        $input = $req->getParsedBody();
         $arrResp = array();
 
         if($input['login'] == "admin" && $input['password'] == "123456") {
             session_start();
             $_SESSION["islogin"] = 1;
-            $arrResp = array("session"=>true,"msg"=>"Acceso Autorizado!");
+            $arrResp = array("session"=>1,"msg"=>"Acceso Autorizado!");
+            return $resp->withRedirect('/establecimientos/nuevo', 200);
         } else {
-            $arrResp = array("session"=>false,"msg"=>"acceso denegado!!!");
+            $arrResp = array("session"=>0,"msg"=>"acceso denegado!!!");
         }
 
         //return $this->response->withJson($arrResp);

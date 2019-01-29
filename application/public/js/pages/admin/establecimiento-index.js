@@ -53,4 +53,9 @@ $(function() {
     window.myPie = new Chart(ctx, config);
     //};
 
+    $(function(){
+        var idTab = window.location.hash.substr(1);
+        console.log(idTab);
+        $("#"+idTab).trigger('click');
+    });
 });
