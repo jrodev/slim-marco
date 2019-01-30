@@ -44,69 +44,29 @@ include("menu.php"); ?><br>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active" align="center">
-            <img src="../images/Hospital_villa_el_salvador.png" alt="">
-            <!--<div class="carousel-caption">
-                <h3>First Slide</h3>
-                <p>This is the first image slide</p>
-            </div>-->
+            <img src="images/ejer_cito.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_Loayza.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Second Slide</h3>
-                <p>This is the second image slide</p>
-            </div>-->
+            <img src="images/es_salud.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_Rebagliatti.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
+            <img src="images/f_a_p.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_Naval.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
+            <img src="images/min_sa.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_Ejercito.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
+            <img src="images/na_val.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_FAP.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
+            <img src="images/po_li_cia.jpg?v=hg56hg56hg56" alt="">
         </div>
-
         <div class="item" align="center">
-            <img src="../images/Hospital_PNP.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
+            <img src="images/re_gio_nal.jpg?v=hg56hg56hg56" alt="">
         </div>
-
-        <div class="item" align="center">
+        <!--div class="item" align="center">
             <img src="../images/Hospital_Carlos_Segun.jpg" alt="">
-            <!--<div class="carousel-caption">
-                <h3>Third Slide</h3>
-                <p>This is the third image slide</p>
-            </div>-->
-        </div>
-
+        </div-->
     </div>
 
     <!-- Controls -->
