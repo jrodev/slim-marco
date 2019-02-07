@@ -56,6 +56,7 @@ return [
           'password' => 'secret',
           'collation' => 'utf8_general_ci',
           'charset' => 'utf8',
+          'strict' => false, // Para Mysql 5.7 esta en modo estricto sql_mode error group by
           'prefix' => ''
         ],
 
