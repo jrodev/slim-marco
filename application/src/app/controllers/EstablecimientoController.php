@@ -23,18 +23,57 @@ class EstablecimientoController extends Controller
        $this->ci = $ci;
     }
     */
+    public function ver ($req, $resp, $args)
+    {
+        // get codigo
+        $id = key_exists("id",$args) ? $args["id"] : false;
+
+        $db = $this->db;
+        $db = $db::connection(DB_SETTINGS_NAME);
+        $e  = 'establecimiento';
+        $dpto ='departamento'; $prov = 'provincia'; $dist = 'distrito';
+        $cat  = 'categoria';
+        $query = $db->table($e)
+                    ->join($dist, "$dist.id", '=', "$e.distrito_id")
+                    ->join($prov, "$prov.id", '=', "$dist.provincia_id")
+                    ->join($dpto, "$dpto.id", '=', "$prov.departamento_id")
+                    ->join($cat , "$cat.id" , '=', "$e.categoria_id")
+                    ->select(
+                        "$e.*", // Todas las columnas de establecimiento
+                        $db->raw("$dpto.nombre departamento_nom"),
+                        $db->raw("$prov.nombre provincia_nom"),
+                        $db->raw("$dist.nombre distrito_nom"),
+                        $db->raw("$cat.nombre categoria_nom")
+                    )->where("$e.id", '=', $id)
+        ; !d($query->toSql());
+        $estab = $query->get()->all(); //var_dump($estab); exit;
+        $estab = count($estab) ? $estab[0] : array();
+        //!d($estab); exit;
+        foreach ($estab as $key => $value) {
+            $estab->$key = (trim($value) && !is_null($value)) ? $value : "- - -";
+        }
+
+        return $this->render($resp, 'establecimiento/ver.twig', ['estab'=>$estab]);
+    }
+
     public function index ($req, $resp, $args)
     {
         $db = $this->db;
         $db = $db::connection(DB_SETTINGS_NAME);
-        $idRegion = 1; //$req->getQueryParams('region',1);
+        $idRegion = '150000'; //$req->getQueryParams('region',1);
         var_dump($idRegion);
-        // Tablas
+
+        // Query 1 - Latado de Establecimientos --------------------------------------------------------------
         $e    = 'establecimiento';
         $dist = 'distrito';
         $prov = 'provincia';
         $dep  = 'departamento';
         $cat  = 'categoria';
+
+        $q1cols = array(
+            'codigo','establecimiento','categoria','departamento','provincia','distrito','direccion',
+            'Año Funcionamiento','N° Camas','N° Pisos','Inversión Total','Área de Terreno','Área Construida'
+        );
 
         $query1 = $db->table($e)
                     ->join($dist, "$dist.id", '=', "$e.distrito_id")
@@ -58,14 +97,18 @@ class EstablecimientoController extends Controller
                         $db->raw("($e.gral_inversionequip + $e.gral_inversionInfra) 'Inversión Total'"),
                         $db->raw("$e.geo_areaterreno 'Área de Terreno'"),
                         $db->raw("$e.geo_areaconstruida 'Área Construida'")
-                    )->where("$e.activo",'=', 1)->where("$dep.id",'=', $idRegion);//->toSql()
-        ;
-        //!d($query->toSql()); exit;
+                    )->where("$e.activo", '=', 1)->where("$dep.id", '=', $idRegion);//->toSql()
+        ; //!d($query1->toSql(), $idRegion); exit;
         // Agrupando para adecuadamente para usar en el foreach de la plantilla
-        $estabs = $query1->get()->all();
-        $firstRow = json_decode(json_encode($estabs[0]), true);
-        $cols = array_keys($firstRow);   //!d($cols); exit;
+        $estabs = $query1->get()->all(); //var_dump($estabs); exit;
+        //$firstRow = count($estabs) ? json_decode(json_encode($estabs[0]), true) : array();
+        $cols = $q1cols; //array_keys($firstRow); // COlumnas para Grilla
 
+        // Query 2 - Listado Reporte de Estado de conservacion. ----------------------------------------------
+        $q2cols = array(
+            'Red Asistencial','Establecimiento de Salud','Arquitectura','Estructura',
+            'Instalaciones Eléctricas','Instalaciones Sanitarias','Estado General'
+        );
         $query2 = $db->table($e)->select(
             $db->raw("red_institucion 'Red Asistencial'"),
             $db->raw("nombre 'Establecimiento de Salud'"),
@@ -75,17 +118,14 @@ class EstablecimientoController extends Controller
             $db->raw("conserv_instasanit 'Instalaciones Sanitarias'"),
             $db->raw(
                 "round((
-             		 conserv_arquitect+
-         		     conserv_estruct+
-                     conserv_instaelect+
-                     conserv_instasanit
+             		 conserv_arquitect + conserv_estruct + conserv_instaelect + conserv_instasanit
                  )/4 ) 'Estado General'"
             )
         );
 
         $estados = $query2->get()->all();
-        $firstRow2 = json_decode(json_encode($estados[0]), true);
-        $cols2 = array_keys($firstRow2);   //!d($query2->toSql()); exit;
+        //$firstRow2 = json_decode(json_encode($estados[0]), true);
+        $cols2 = $q2cols; // array_keys($firstRow2);   //!d($query2->toSql()); exit;
 
         return $this->render(
             $resp,
@@ -169,10 +209,13 @@ class EstablecimientoController extends Controller
             'count' => $count
         ));*/
 
+        // Obteniendo departamentos
+        $dptos = $this->getUbigeo('dpto');
+
         return $this->render(
             $resp,
             'establecimiento/nuevo.twig',
-            ['attrs'=>$attrs, 'esps'=>$esps, 'catUppsUps'=>$catUppsUps]
+            ['attrs'=>$attrs, 'esps'=>$esps, 'catUppsUps'=>$catUppsUps, 'dptos'=>$dptos]
         );
     }
 

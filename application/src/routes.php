@@ -24,11 +24,11 @@ $app->group('/users/{id:[0-9]+}', function (App $app) {
 });*/
 
 // Routes
-$app->group('/establecimientos', function () {
+$app->group('/establecimientos', function () use ($mwLogin) {
 
     $this->get('[/[index[/[{page}[/{perpage}]]]]]', 'EstablecimientoController:index')->setName('listar-establecimientos'); // Listar
 
-    $this->get('/nuevo[/]', 'EstablecimientoController:nuevo');
+    $this->get('/nuevo[/]', 'EstablecimientoController:nuevo')->add($mwLogin);
 
     $this->post('[/guardar[/]]', 'EstablecimientoController:guardar');
 
@@ -45,12 +45,14 @@ $app->group('/establecimientos', function () {
     });
 });
 
+//
 $app->group('/upssups', function () {
     $this->get('[/[cat/{idcat}[/]]]', 'UpssupsController:index')->setName('listar-upssups'); // Listar
 });
 
+// Rutas de login
 $app->group('/login', function () {
-    $this->get('[/index[/]]', 'LoginController:index');
+    $this->get('', 'LoginController:index')->setName('login'); // $this->get('[/index[/]]', ...'
     $this->post('[/post[/]]', 'LoginController:post');
 });
 
@@ -66,6 +68,13 @@ $app->get('[/[{page_name}]]', function($req, $resp, $args) use ($app) {
     $renderer->render($resp, $fileName);
 });
 
+// Rutas de Ubigeo
+$app->group('/ubigeo', function () {
+    // tblubig = dpto | prov | dist
+    $this->get('/{tblubg}[/[{tblcat}/{idcat}[/]]]', 'UbigeoController:index');//->setName('ubigeo');
+    //$this->get('/prov[/[{id}[/]]]', 'UbigeoController:prov')->setName('ubigeo.prov');
+    //$this->get('/dist[/[{id}[/]]]', 'UbigeoController:dist')->setName('ubigeo.dist');
+});
 
 
 //$app->get('/test[/[index[/]]]', \App\Controllers\Test\IndexController::class.":index");

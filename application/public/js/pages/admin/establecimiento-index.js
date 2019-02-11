@@ -6,6 +6,12 @@ $(function() {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         },
+        columns:[{
+            "data": "codigo",
+            "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                $(nTd).html("<a href='#'>"+oData.codigo+"</a>");
+            }
+        }],
         dom: 'Bfrtip',
         buttons: [{
             extend: 'excel',
@@ -55,7 +61,7 @@ $(function() {
 
     $(function(){
         var idTab = window.location.hash.substr(1);
-        console.log(idTab);
-        $("#"+idTab).trigger('click');
+        console.log('hash idTab:',idTab);
+        if($.trim(idTab)){ $("#"+idTab).trigger('click'); }
     });
 });

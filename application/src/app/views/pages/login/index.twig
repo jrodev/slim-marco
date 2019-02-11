@@ -257,7 +257,8 @@
     <body>
         <div class="wrapper fadeInDown">
 
-            {% if arrResp is defined and not arrResp.session %}
+            {# if arrResp is defined and not arrResp.session and arrResp not null #}
+            {% if arrResp is not null %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Error!</strong> {{arrResp.msg}}
             </div>
