@@ -60,8 +60,8 @@ class EstablecimientoController extends Controller
     {
         $db = $this->db;
         $db = $db::connection(DB_SETTINGS_NAME);
-        $idRegion = '150000'; //$req->getQueryParams('region',1);
-        var_dump($idRegion);
+        $idRegion = false; //'150000'; //$req->getQueryParams('region',1);
+        //var_dump($idRegion);
 
         // Query 1 - Latado de Establecimientos --------------------------------------------------------------
         $e    = 'establecimiento';
@@ -98,8 +98,9 @@ class EstablecimientoController extends Controller
                         $db->raw("($e.gral_inversionequip + $e.gral_inversionInfra) 'Inversión Total'"),
                         $db->raw("$e.geo_areaterreno 'Área de Terreno'"),
                         $db->raw("$e.geo_areaconstruida 'Área Construida'")
-                    )->where("$e.activo", '=', 1)->where("$dep.id", '=', $idRegion);//->toSql()
+                    )->where("$e.activo", '=', 1)//->toSql()
         ; //!d($query1->toSql(), $idRegion); exit;
+		if($idRegion){ $query1->where("$dep.id", '=', $idRegion); }
         // Agrupando para adecuadamente para usar en el foreach de la plantilla
         $estabs = $query1->get()->all(); //var_dump($estabs); exit;
         //$firstRow = count($estabs) ? json_decode(json_encode($estabs[0]), true) : array();
