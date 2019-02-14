@@ -35,7 +35,7 @@ $role = \Libs\Roles\Role::getRolePerms(2);
 exit;*/
 // ----------------------------------------------------------------------------------------
 
-define("DB_SETTINGS_NAME", "db_trab_vagrant_oniees"/*"db_casa_local_oniees"*/);
+define("DB_SETTINGS_NAME", "db_casa_local_oniees"/*"db_trab_vagrant_oniees"*/);
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
