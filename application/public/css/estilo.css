@@ -10,7 +10,7 @@ background-repeat: repeat-y, repeat-x ;
 
 #header {
 	width:750px;
-	margin-left:275px;
+	margin-left:280px;
 	height: 100px;}
 
 #principal {
@@ -33,16 +33,16 @@ background-repeat: repeat-y, repeat-x ;
 }
 	
 #footer {
-	width:1004px;
+	width:1000px;
+	height:185px;
 	padding:10px;
-	height: 350px;
 	color:#FFFFFF;
 	font-size:11px;
-	background: #2f3cbb}
+	background: #585858}
 	
 #columna_footer {
-	width:220px;
-	height: 210px;
+	width:120px;
+	height:210px;
 	color:#FFFFFF;
 	font-size:10px;
 	float:left;
@@ -52,18 +52,18 @@ background-repeat: repeat-y, repeat-x ;
 	padding:10px;}
 
 #banner_footer {
-	width:1004px;
-	height: 100px;
+	width:980px;
+	height: 80px;
 	color:#FFFFFF;
 	font-size:10px;
 	float:left;
-	text-align:left;
-	margin-right:10px;
-	margin-bottom:10px;
+	text-align:center;
+	margin-right:20px;
+	margin-bottom:20px;
 	background: #fff}
 	
 #banner_footer img {
-	margin-left:10px;
+	margin-left:3px;
 	height:43px;
 	padding-top:10px;
 	margin-top:20px
