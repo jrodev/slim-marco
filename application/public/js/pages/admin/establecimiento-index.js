@@ -6,10 +6,11 @@ $(function() {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         },
-        columns:[{
-            "data": "codigo",
-            "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-                $(nTd).html("<a href='#'>"+oData.codigo+"</a>");
+        "columnDefs": [{
+            "targets": 0,
+            "createdCell": function (nTd, sCol, aData, iRow, iCol) {
+                console.log(arguments);
+                $(nTd).html("<a href='"+App.baseUrl+"establecimientos/"+sCol+"'>" + sCol + "</a>");
             }
         }],
         dom: 'Bfrtip',
@@ -20,11 +21,22 @@ $(function() {
         }]
     });
 
+    var colors = {'Malo':'danger', 'Regular':'warning', 'Bueno':'success'}
+        , fncCell = function (nTd, sCol, aData, iRow, iCol) {
+            console.log(arguments);
+            $(nTd).html("<span class='text-" + colors[sCol] + "'>" + sCol + "</span>");
+        }
+    ;
     $('#tblEstados').DataTable({
         //"scrollX": true,
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        },
+        "language": { "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json" },
+        "columnDefs": [
+            { "targets": 2, "createdCell": fncCell },
+            { "targets": 3, "createdCell": fncCell },
+            { "targets": 4, "createdCell": fncCell },
+            { "targets": 5, "createdCell": fncCell },
+            { "targets": 6, "createdCell": fncCell }
+        ],
         dom: 'Bfrtip',
         buttons: [/*'copy',*/ 'csv', 'excel']
     });

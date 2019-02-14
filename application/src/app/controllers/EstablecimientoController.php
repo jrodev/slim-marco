@@ -71,7 +71,7 @@ class EstablecimientoController extends Controller
         $cat  = 'categoria';
 
         $q1cols = array(
-            'codigo','establecimiento','categoria','departamento','provincia','distrito','direccion',
+            'ID','codigo','establecimiento','categoria','departamento','provincia','distrito','direccion',
             'Año Funcionamiento','N° Camas','N° Pisos','Inversión Total','Área de Terreno','Área Construida'
         );
 
@@ -81,6 +81,7 @@ class EstablecimientoController extends Controller
                     ->join($dep , "$dep.id" , '=', "$prov.departamento_id")
                     ->join($cat , "$cat.id" , '=', "$e.categoria_id")
                     ->select(
+                        $db->raw("$e.id"),
                         $db->raw("$e.codigo"),
                         $db->raw("$e.nombre establecimiento"),
                         $db->raw("$cat.nombre categoria"),
