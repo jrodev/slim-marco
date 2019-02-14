@@ -11,27 +11,33 @@ class LoginController extends Controller
 
     public function index ($req, $resp, $args)
     {
+        session_start();
+        $arrResp = $_SESSION["sessErr"] ? $_SESSION["sessErr"] : null;
+        if ($_SESSION["islogin"]) {
+            return $resp->withRedirect('/establecimientos/nuevo', 302);
+        };
 
-        //d($user);
-        return $this->render($resp, 'login/index.twig');
+        return $this->render($resp, 'login/index.twig', ['arrResp'=>$arrResp]);
     }
 
-    public function post ($req, $resp, $args) {
+    public function post ($req, $resp, $args)
+    {
+        session_start();
 
         $input = $req->getParsedBody();
         $arrResp = array();
-
+        $urlRedirect = '/login'; // Si no hay sesion se regresa al login
+        $_SESSION["islogin"] = false; // Inicializando
+        // Si usuario y password correcto
         if($input['login'] == "admin" && $input['password'] == "123456") {
-            session_start();
-            $_SESSION["islogin"] = 1;
-            $arrResp = array("session"=>1,"msg"=>"Acceso Autorizado!");
-            return $resp->withRedirect('/establecimientos/nuevo', 200);
-        } else {
-            $arrResp = array("session"=>0,"msg"=>"acceso denegado!!!");
+            $_SESSION["islogin"] = true;
+            $_SESSION["sessErr"] = array("session"=>0,"msg"=>"Usuario o password incorrecto!");
+            $urlRedirect = '/establecimientos/nuevo';
         }
-
+        // Else : Error Login
         //return $this->response->withJson($arrResp);
-        return $this->render($resp, 'login/index.twig', ['arrResp'=>$arrResp]);
+        return $resp->withRedirect($urlRedirect, 302);
+        //return $this->render($resp, 'login/index.twig', ['arrResp'=>$arrResp]);
     }
 
 }

@@ -122,3 +122,8 @@ $container['UpssupsController'] = function ($c) {
     $settings = $c->get('settings');
 	return new App\Controllers\UpssupsController($settings, $c['view'], $c['router'], $c['db']);
 };
+
+$container['UbigeoController'] = function ($c) {
+    $settings = $c->get('settings');
+	return new App\Controllers\UbigeoController($settings, $c['view'], $c['router'], $c['db']);
+};
