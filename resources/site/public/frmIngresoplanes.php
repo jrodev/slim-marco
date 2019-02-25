@@ -9,13 +9,24 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ONIEES - Observatorio Nacional de Infraestructura, Equipamiento y Mantenimiento de Establecimientos de Salud - Perú</title>
-   <link rel="stylesheet" href="../css/styles.css">
-   <link rel="stylesheet" type="text/css" href="./.css/estilo.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="stylesheet" type="text/css" href="css/estilo.css">
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="../js/script.js"></script>
-
-
+   <script src="js/script.js"></script>
+   
+<script>
+		$(function() {
+			$("#mp1").tooltip({
+				content: "Debe elegir entre urbana y rural (s&oacutelo una).",
+				track:true
+            }),
+            $("#mp2").tooltip({
+				content: "15 / 50",
+				track:true
+            });
+         });
+		</script>   
 
 </head>
 
@@ -29,7 +40,7 @@
   </tr>
   <tr>
     <td>Código</td>
-    <td><input name="" type="text" /></td>
+    <td><input name="" id="mp1" type="text" /></td>
     <td colspan="2">Nombre Establecimiento</td>
     <td colspan="3"><input name="" type="text" size="50"/></td>
     <td colspan="">Categoría</td>
@@ -50,12 +61,12 @@
   <tr>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">UBICACIÓN</td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+    
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">RED</td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <!--<td bgcolor="#0033CC" style="color:rgba(255,255,255)">INFORMACIÓN GENERAL DEL ESTABLECIMIENTO</td>-->
   </tr>
-
+  
 
   <tr>
   <td>
@@ -71,12 +82,12 @@
        </select>
      </label></td>
     </tr>-->
-
+    
   	<tr>
             <td>Departamento</td>
             <td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Provincia</td>
     	<td><input name="" type="text" /></td>
@@ -93,7 +104,7 @@
     </tr>-->
     </table></td>
     <td></td>
-
+    
     <td>
     <table width="374" border=0>
         <tr>
@@ -144,16 +155,16 @@
     	<td>Inversión en Equipamiento</td>
     	<td><input name="" type="text" /></td>
     </tr>-->
-
+    
     </table></td>
-
-
+     
+  
  <!--<table width="200" border="1">
 </br>
   <tr>
     <td colspan="10" bgcolor="#0033CC" style="color:rgba(255,255,255)">INFORMACION DEL EQUIPAMIENTO</td>
   </tr>
-
+  
 
   <tr>
   <td>
@@ -163,7 +174,7 @@
    <br />
    <img id="imgSalida" width="50%" height="50%" src="" />
    </td>
-
+            
     </tr>
     </table></td>
     <td></td>
@@ -186,7 +197,7 @@
   </tr>
 
 
-
+  
 </table>
 
 <table width="200" border="0">
@@ -194,7 +205,7 @@
   <tr>
     <td colspan="10" bgcolor="#0033CC" style="color:rgba(255,255,255)">INFORMACION DEL EQUIPAMIENTO</td>
   </tr>
-
+  
   <tr>
   <td>
     <table width="650" border=0>
@@ -202,12 +213,12 @@
             <td width="274">Código Patrimonial</td>
             <td width="192"><input name="" type="text" /></td>
     </tr>
-
+    
   	<tr>
             <td>Denominación del equipamiento</td>
             <td width="192"><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Tipo de equipamiento</td>
     	<td><input name="" type="text" /></td>
@@ -222,39 +233,39 @@
     	<td>Modelo</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Serie</td>
         <td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Prioridad del Equipo</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
             <td>Año de alta</td>
             <td><input name="" type="text" /></td>
         </tr>
-
+    
     <tr>
             <td>Antigüedad en años</td>
             <td><input name="" type="text" /></td>
         </tr>
-
+    
     </table></td>
     <td></td>
-
+    
     <td>
     <table width="200" border=0>
-
+   		
     </table></td>
     <td></td>
     <td>
-
+    
     <table width="630" border=0>
-
+        
    		        <tr>
     	<td>Vida util del equipamiento</td>
     	<td><input name="" type="text" /></td>
@@ -276,27 +287,27 @@
     	<td>Numero de termino de referencia</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Valor actual equipo nuevo</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Costo unitario de mantenimiento</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Frecuencia anual de Mantenimiento</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Costo anual estimado de mantenimiento</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Prioridad por año</td>
     	<td width="243"><label>
@@ -308,12 +319,12 @@
        </select>
      </label></td>
     </tr>
-
+    
     <tr>
     	<td>Orden de prelación</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     </table></td>
 
 <table width="50" border="0">
@@ -329,54 +340,54 @@
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td bgcolor="#0033CC" style="color:rgba(255,255,255)">OBSERVACIONES ENCONTRADAS</td>
   </tr>
-
+  
 
   <tr>
   <td>
     <table width="350" border=0>
     <tr>
             <td width="350">Criterio 1</td>
-            <td width="49"><input name="" type="checkbox" /></td>
+            <td width="49"><input type="checkbox" name="c1" value="1" /></td>
     </tr>
-
+    
   	<tr>
             <td>Criterio 2</td>
-            <td><input name="" type="checkbox" /></td>
+            <td><input type="checkbox" name="c2" value="2"  /></td>
     </tr>
-
+    
     <tr>
     	<td>Criterio 3</td>
-    	<td><input name="" type="checkbox" /></td>
+    	<td><input type="checkbox" name="c3" value="3"  /></td>
 	</tr>
 
     <tr>
     	<td>Criterio 4</td>
-    	<td><input name="" type="checkbox" /></td>
+    	<td><input type="checkbox" name="c4" value="4" /></td>
     </tr>
 
     <tr>
     	<td>Criterio 5</td>
-    	<td><input name="" type="checkbox" /></td>
+    	<td><input type="checkbox" name="c5" value="5" /></td>
     </tr>
-
+    
     <tr>
     <!--<input name="Agregar otro Equipo" type="button" />-->
     <td></td><td>
       <form id="form2" name="form2" method="post" action="">
-        <input type="submit" name="agregar" id="agregar" value="Evaluar" />
+        <input type="submit" name="evaluacion" id="agregar" value="Evaluar" />
         <!--Agregar otro equipo
         <input type="submit" name="button" id="button" value="Enviar" />-->
       </form>      </td>
-
+      
       </tr>
-
+    
     <tr>
     	<td>Resultado de Evaluacion</td>
     	<td><input name="" type="text" /></td>
     </tr>
     </table></td>
     <td></td>
-
+    
     <td>
     <table width="80" border=0>
         <tr>
@@ -401,23 +412,23 @@
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     </table></td>
     <td></td>
     <td>
 
     <table width="400" border=0>
-
+           		
         <tr>
     	<td><form id="form1" name="form1" method="post" action="">
     	  <label for="textarea"></label>
@@ -425,13 +436,13 @@
   	  </form></td>
     	<td>&nbsp;</td>
     </tr>
-
-
+    
+   
     </table></td>
     <td></td>
-
+	
     <td>
-
+    
 	<table width="80" border=0>
         <tr>
             <td width="240"></td>
@@ -455,24 +466,24 @@
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     <tr>
     	<td>&nbsp;</td>
     	<td>&nbsp;</td>
     </tr>
-
+    
     </table></td>
     <td></td>
 
     <td>
-
+	
     <table width="400" border=0>
-
+           		
         <tr>
     	<td><form id="form1" name="form1" method="post" action="">
     	  <label for="textarea"></label>
@@ -480,8 +491,8 @@
   	  </form></td>
     	<td>&nbsp;</td>
     </tr>
-
-
+    
+   
     </table></td>
 
 <table width="1500" border="0">
@@ -489,7 +500,7 @@
   <tr>
     <td colspan="10" bgcolor="#0033CC" style="color:rgba(255,255,255)">CÁLCULO DE COSTO DE MANTENIMIENTO DEL INFORME TÉCNICO</td>
   </tr>
-
+  
   <tr>
   <td>
     <table width="650" border=0>
@@ -504,12 +515,12 @@
        </select>
      </label></td>
     </tr>
-
+    
   	<tr>
             <td>Costo Hora/Hombre</td>
             <td width="192"><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Factor de Correccion</td>
     	<td width="243"><label>
@@ -530,51 +541,51 @@
     	<td>Frecuencia anual de mantenimiento</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Materiales Fungibles</td>
         <td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
     	<td>Repuestos / Accesorios</td>
     	<td><input name="" type="text" /></td>
     </tr>
-
+    
     <tr>
             <td>Costo Anual de Mantenimiento</td>
             <td><input name="" type="text" /></td>
     </tr>
-
-
-
+    
+    
+    
     </table></td>
 
  <table width="600" border="0">
-  </br>
+  </br>	
   <tr>
         <td>
       <form id="form2" name="form2" method="post" action="">
         <input type="submit" name="agregar" id="agregar" value="Agregar otro Equipo" />
-
+        
       </form>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+    
     <tr></tr>
-
+       
     </table></td>
     <td></td>
     <td>
-
-
+    
+    
     </table></td>
-
+ 
 <table width="1500" border="0">
-  </br>
+  </br>	
  <tr>
     <td colspan="10" bgcolor="#0033CC" bordercolor="#FFFFFF" style="color:rgba(255,255,255)">EQUIPAMIENTO</td>
   </tr>
   <tr>
-
+  
 
   <tr>
   <td>
@@ -597,7 +608,7 @@
             <td width="183" align="center"><strong>Prioridad</strong></td>
 			<td width="183" align="center"><strong>Orden</strong></td>
     </tr>
-
+    
   	<tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -617,7 +628,7 @@
             <td>&nbsp;</td>
 
     </tr>
-
+    
     <tr>
     	<td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -677,26 +688,26 @@
     </table></td>
     <td></td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+    
     <td>
         <td></td>
     <td>
-    </tr>
-
+    </tr> 	 
+ 
      <td></td>
-
+    
  <table width="600" border="0">
-  </br>
+  </br>	
   <tr>
         <td>
       <form id="form2" name="form2" method="post" action="">
         <input type="submit" name="agregar" id="agregar" value="Guardar Plan" />
-
+        
       </form>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+    
     <tr></tr>
-
-    </table></td>
+       
+    </table></td>    	 
 
 
 
@@ -705,3 +716,6 @@
 
 
 </html>
+
+
+
