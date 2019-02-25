@@ -1,12 +1,14 @@
-<div id="header">
-    <a href="http://www.dgiem.gob.pe" target="_blank">
-        <img src="images/logo_dgos.png" width="300" height="70" align="right"
-             style="position:absolute; margin-right:-100px; margin-top:15px; padding:10px;"
-        />
-    </a>
-</div>
+<nav id="cabecera">
+	<div class="logo_1">
+		<a href="./"><img src="../images/logo.png" width="300" style="position:absolute; margin-left:-310px; margin-top:15px; padding:10px; "/></a>
+		
+		<a href='http://www.minsa.gob.pe/'  target=_blank title="Ir al Portal MINSA"><div class="logo_2"></div></a>
+	</div>
+</nav>
 
 <div id='cssmenu'>
+	<div id="head-mobile"></div>
+    <div class="button"></div>
     <ul>
         <li><a href='./'>Inicio</a></li>
         <li class='has-sub'>

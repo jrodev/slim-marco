@@ -13,6 +13,7 @@
 <title>ONIEES - Observatorio Nacional de Infraestructura, Equipamiento y Mantenimiento de Establecimientos de Salud - Perú</title>
    <link rel="stylesheet" href="../css/styles.css">
    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+   <link rel="stylesheet" type="text/css" href="../css/menu.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../js/script.js"></script>
 </head>
@@ -20,11 +21,11 @@
 <div id="principal">
 
 <div id="header">
-<a href="./"><img src="../images/logo.png" width="250" style="position:absolute; margin-left:-250px; margin-top:15px; padding:10px; "/></a>
+
 <?php
 
 include("menu.php"); ?><br>
-
+<p>&nbsp;</p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -110,9 +111,6 @@ $('.carousel').carousel({
 <p>&nbsp;</p>
 </div>
 </body>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p div="nombre7">El Observatorio Nacional de Infraestructura, Equipamiento de Establecimientos de Salud (ONIEES) es una herramienta de seguimiento de gesti&oacute;n sanitaria que establece un mecanismo de transparencia de las compras realizadas por las entidades del sector salud y seguimiento al cumplimiento de los planes multianuales de mantenimiento de la infraestructura y equipamiento de los establecimientos de salud a nivel nacional.</p>
 <?php include("footer.php"); ?>
 </html>

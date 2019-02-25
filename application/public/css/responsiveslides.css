@@ -1,0 +1,157 @@
+/*! http://responsiveslides.com v1.54 by @viljamis */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto 40px;
+  }
+
+.rslides2 {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  margin: 0 auto;
+  }
+
+.rslides_tabs {
+  background: rgba(0,0,0,.25);
+  box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
+  -moz-box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
+  font-size: 18px;
+  list-style: none;
+  margin: 0 auto 50px;
+  max-width: 540px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.rslides_tabs li {
+  display: inline;
+  float: none;
+  margin-right: 1px;
+}
+
+.rslides_tabs a {
+  width: auto;
+  line-height: 20px;
+  padding: 9px 20px;
+  height: auto;
+  background: transparent;
+  display: inline;
+}
+
+.rslides_tabs a:hover {
+  border: 0;
+}
+
+.rslides_tabs li:first-child {
+  margin-left: 0;
+}
+
+.rslides_tabs .rslides_here a {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  font-weight: bold;
+}
+ 
+
+#div_3 .call { border-bottom:solid 1px #c9c9c9;  border-top:solid 1px #c9c9c9; padding:10px 0px; margin:20px 0px; text-align:right; color:#038eb4; }
+#div_3 .call .a1{ font-size:18px; font-weight:700; padding:10px 35px 0px 0px; background:url(../images/callme.png) right no-repeat; background-size:35px 35px; letter-spacing:0px; color:#1260a8; }
+#div_3 .call .a2{  font-size:25px; line-height:110%; font-weight:700; padding: 0px ; }
+#div_3 .call a.a3  , #div_3 .call strong{  font-size:15px; letter-spacing:1px; padding-top:0px ; font-weight:normal; margin:0px; text-decoration:none;  color:#1260a8; }
+#div_3 .call a.a3:hover{	color: #5a2b8e;}
+#div_3 .call .a4{  font-size:13px;  font-weight:300; padding:0px ; margin:0px;  color:#8E0FC6;} 
+
+
+#antecedente ol li{ margin-top:25px; margin-left:50px;}
+#antecedente ol li strong{ display:block; margin-bottom:0px; font-weight:normal; font-size:16px;    }
+#antecedente ol li a{ display:block; margin-bottom:0px;  text-decoration:none; color:#666; padding-left:20px; background: url(../images/ico_dwl1.png) left no-repeat;   }
+#antecedente ol li a:hover{ color:#1968b3;}
+
+
+#alcance ol li{
+	margin-top: 20px;
+	margin-left: 30px;
+	font-size: 17px;
+	font-weight: 600;
+	color: #09C;
+}
+
+#alcance ol li p,#alcance ol li ul li,#alcance ol li ol li{ font-size:14px; color:#666; font-weight:normal;    }
+#alcance  a {
+	display: block;
+	text-decoration: none;
+	color: #06C;
+	padding-left: 20px;
+	padding-top: 20px;
+	/*background: url(../images/btn_open.png) left bottom no-repeat;*/
+}
+#alcance  a:hover{color: #00a8ff;}
+#alcance .li_1{ position:relative; margin-left:30px; }
+#alcance .li_2{  position:relative;  position:relative;  font-size:14px; color:#666; font-weight:normal;}
+#alcance a._des{ font-size:12px; margin:10px 0 0 0; padding:0px; color:#555; font-weight:normal;} 
+#alcance a._des:hover{  color:#00a8ff;} 
+
+	dl { width: 100%; }
+	dl,dd { margin: 0; }
+	dt {   }
+	dt a { padding:3px 20px 3px 0px;  color:#0c90e4; background:url(../images/fle.png) right no-repeat;}
+	dt a:hover { color:#1580c5; }
+	
+.img_esc{ width:80%;  height:auto; margin-top:30px; margin-bottom:10px;}	 
+
+@media screen and (max-width: 540px) {
+  h1 {
+    font: 24px/50px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .github {
+    display: none;
+  }
+  .list {
+    margin-left: 20px;
+  }
+ .img_esc{ width:100%;  height:auto;}	 
+}
