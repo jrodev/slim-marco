@@ -25,7 +25,9 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
- <h2><strong><img src="http://www.dgiem.gob.pe/wp-content/uploads/2015/08/20150804_06.jpg" alt="20150804_06" width="352" height="280" style="float:left; margin-right:25px"/>Directorio</strong></h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+ <h2><strong><img src="images/20150804_06.jpg" alt="20150804_06" width="352" height="280" style="float:left; margin-right:25px"/>Directorio</strong></h2>
   <p id="nombre4"><strong>Dr. Juan José Bobadilla Aguilar</strong></p>
   <p id="nombre4">Director General de Infraestructura, Equipamiento y Mantenimiento</p>
   <p id="nombre4">&nbsp;</p>

@@ -25,8 +25,9 @@
 <?php
 
 include("menu.php"); ?><br>
-<p>&nbsp;</p>
 </div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <div id="myCarouselCustom" class="carousel slide" data-ride="carousel">

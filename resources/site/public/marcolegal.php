@@ -23,6 +23,8 @@
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
 	<h2><strong><img src="images/image_columns-197x300.jpg" width="221" height="440" style="float:left; margin-right:35px"/>Marco legal</strong></h2>
 	<div class="entry">
 		<p id="nombre4">Decreto Legislativo N° 1155, en su artículo 2° dicta medidas destinadas a mejorar la calidad del servicio y declara de interés público el mantenimiento de la infraestructura y el equipamiento en los establecimientos de salud a nivel nacional.</p>

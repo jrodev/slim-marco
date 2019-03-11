@@ -25,6 +25,8 @@
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
    <h2><strong><img src="images/comision.jpg" width="300" height="335" style="float:left; margin-right:35px"/>Instituciones Integrantes</strong></h2>	
     <p id="nombre4">El Observatorio Nacional de Infraestructura, Equipamiento de Establecimientos de Salud est&aacute; conformado por las siguientes instituciones:</p>
 	<p id="nombre4">&nbsp;</p>
