@@ -41,7 +41,7 @@ return [
            'host' => '127.0.0.1',
            'database' => 'onieesdb2',
            'username' => 'root',
-           'password' => 'admin812',
+           'password' => '123456',
            'collation' => 'utf8_general_ci',
            'charset' => 'utf8',
            'prefix' => ''
