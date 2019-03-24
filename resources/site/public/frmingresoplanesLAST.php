@@ -132,7 +132,31 @@
     </table></td>
     <td></td>
     <td>
-    </td>
+    <table width="521" border=0>
+        <tr>
+            <td width="319">UPSS y actividades de atencion directa y de soporte</td>
+            <td width="192"><input name="" type="text" /></td>
+        </tr>
+   		<tr>
+            <td>Ambiente</td>
+            <td><input name="" type="text" /></td>
+        </tr>
+        <!--<tr>
+    	<td>Población Beneficiaria</td>
+    	<td><input name="" type="text" /></td>
+	    </tr>
+
+        <tr>
+    	<td>Inversión en Infraestructura</td>
+    	<td><input name="" type="text" /></td>
+    </tr>
+
+        <tr>
+    	<td>Inversión en Equipamiento</td>
+    	<td><input name="" type="text" /></td>
+    </tr>-->
+    
+    </table></td>
      
   
  <!--<table width="200" border="1">
@@ -184,31 +208,6 @@
   
   <tr>
   <td>
-  <table width="521" border=0>
-        <tr>
-            <td width="319">UPSS y actividades de atencion directa y de soporte</td>
-            <td width="192"><select><option>upps lista</option></select></td>
-        </tr>
-   		<tr>
-            <td>Ambiente</td>
-            <td><select><option>ambiente lista</option></select></td>
-        </tr>
-        <!--<tr>
-    	<td>Población Beneficiaria</td>
-    	<td><input name="" type="text" /></td>
-	    </tr>
-
-        <tr>
-    	<td>Inversión en Infraestructura</td>
-    	<td><input name="" type="text" /></td>
-    </tr>
-
-        <tr>
-    	<td>Inversión en Equipamiento</td>
-    	<td><input name="" type="text" /></td>
-    </tr>-->
-    
-    </table>
     <table width="650" border=0>
     <tr>
             <td width="274">Código Patrimonial</td>
@@ -433,7 +432,7 @@
         <tr>
     	<td><form id="form1" name="form1" method="post" action="">
     	  <label for="textarea"></label>
-    	  <textarea name="textarea" id="textarea" cols="45" rows="8">si es correctivo o preventivo se muestra este textarea</textarea>
+    	  <textarea name="textarea" id="textarea" cols="45" rows="8"></textarea>
   	  </form></td>
     	<td>&nbsp;</td>
     </tr>
