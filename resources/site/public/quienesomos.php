@@ -24,6 +24,8 @@
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
 	<h2><strong><img src="images/mapa.png" alt="20150804_06" width="188" height="135" style="float:left; margin-right:25px"/ bgcolor="#ffffff">¿QUÉ ES EL ONIEES?</strong></h2>
 	<p id="nombre4">El Observatorio Nacional de Infraestructura, Equipamiento de Establecimientos de Salud (ONIEES) es una herramienta de seguimiento de gesti&oacute;n sanitaria que establece un mecanismo de transparencia de las compras realizadas por las entidades del sector salud y seguimiento al cumplimiento de los planes multianuales de mantenimiento de la infraestructura y equipamiento de los establecimientos de salud a nivel nacional.</p>
 </div>

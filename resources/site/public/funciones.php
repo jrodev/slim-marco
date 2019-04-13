@@ -25,6 +25,8 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
   <h2><strong><img src="images/112-300x225.jpg" width="300" height="335" style="float:left; margin-right:35px"/>Funciones</strong></h2>
   <ul>
     <li id="nombre4">Recopilar y difundir  información sobre el estado situacional del mantenimiento de  la infraestructura, equipamiento de los  establecimientos de salud a nivel nacional.</li>

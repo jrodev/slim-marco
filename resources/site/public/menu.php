@@ -37,6 +37,7 @@
                 <li><a href='#'>Planes de Equipamiento</a></li>
             </ul>
         </li>
+        </li>
 
         <li class='active has-sub'>
             <a href='#'>EQUIPAMIENTO</a>
@@ -48,3 +49,5 @@
         <li><a href='#'>Contactenos</a></li>
     </ul>
 </div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
